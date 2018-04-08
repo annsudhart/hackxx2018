@@ -2,9 +2,9 @@ package backend;
 
 public class PEMDASOrder {
 
-  private static int EASY = 0;
-  private static int MED = 0;
-  private static int HARD = 0;
+  private final static int EASY = 0;
+  private final static int MED = 0;
+  private final static int HARD = 0;
 
   private int difficulty;
   private String buttonChoice;
@@ -101,7 +101,7 @@ public class PEMDASOrder {
     int[] equationNums = numberGenerator(amountNumsInEquation);
     int answer = -1;
     String answer = "";
-    // int[] equationNumsWithAnswer = new int[equationNums.length + 1]; 
+    // int[] equationNumsWithAnswer = new int[equationNums.length + 1];
     switch (buttonChoice) {
       case "a":
         // (x * y) + z
@@ -131,28 +131,35 @@ public class PEMDASOrder {
         }
         equationWithEqualSign += ( " = " );
         break;
-      case "b";
+      case "b":
         System.out.println("PEMDAS Option 'b' chosen.");
 
         break;
-      case "c";
+
+      case "c":
         System.out.println("PEMDAS Option 'c' chosen.");
         break;
-      case "d";
+
+      case "d":
         System.out.println("PEMDAS Option 'd' chosen.");
         break;
-      case "e";
+
+      case "e":
         System.out.println("PEMDAS Option 'e' chosen.");
         break;
-      case "f";
+
+      case "f":
         System.out.println("PEMDAS Option 'f' chosen.");
         break;
-      case "g";
+
+      case "g":
         System.out.println("PEMDAS Option 'g' chosen.");
         break;
-      case "h";
+
+      case "h":
         System.out.println("PEMDAS Option 'h' chosen.");
         break;
+
       default:
         System.out.println("button choice does not exist");
     }

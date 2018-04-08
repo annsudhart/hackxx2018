@@ -8,6 +8,7 @@ package backend;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -78,6 +79,9 @@ public class UserInterface extends JPanel implements ActionListener
     // background image
     BufferedImage background;
     Image bgResized;
+    
+    // font and size
+    Font myFont = new Font( "Helvetica", Font.BOLD, 15 );
 
     // Math Flash Card object
     MathFlashCard flashC;
@@ -93,8 +97,7 @@ public class UserInterface extends JPanel implements ActionListener
 
 	public UserInterface()
 	{
-		try
-		{
+	    try {
 			background = ImageIO.read(new File("media/InterfaceArt.png"));
     			bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
 			/* if you guys want to access the image, you need it to be either in a folder
@@ -246,7 +249,7 @@ public class UserInterface extends JPanel implements ActionListener
 		pass.setContentAreaFilled(false);
 		pass.setBorderPainted(false);
 
-		// text field entries
+	// text field entries
         userID = new JTextField(50);
         userID.setBounds(6,4,140,29);
         this.add(userID);
@@ -259,11 +262,10 @@ public class UserInterface extends JPanel implements ActionListener
         finalAnswer.setBounds(587,362,96,70);
         this.add(finalAnswer);
 
-   		/*searchResultsPane = new JTextPane();
+   	/*searchResultsPane = new JTextPane();
         searchResultsPane.setBounds(530,40,235,180);
         this.add(searchResultsPane);*/
        // allSongsPane.setText( getSongList() );
-
 
         this.setFocusable(true);
     }
@@ -282,6 +284,7 @@ public class UserInterface extends JPanel implements ActionListener
        	g.fillRect( 0, 0, 583, 350 );
         g.drawImage( bgResized, 0, 0, null );
         g.setColor( Color.black );
+	g.setFont( myFont );
         // this is the question prompt
         g.drawString( question, 204, 35 );
     }
@@ -323,7 +326,7 @@ public class UserInterface extends JPanel implements ActionListener
         e.getSource() == orderF ||
         e.getSource() == orderG ||
         e.getSource() == orderH ) &&
-        this.current_level == null) {
+        this.current_level == -1) {
           System.out.println("Please choose a difficulty level first.");
     } else { // Make sure difficulty level is already
       if( e.getSource() == orderA )
@@ -368,7 +371,7 @@ public class UserInterface extends JPanel implements ActionListener
           }
       }
         // this is for difficulty level
-        else if( e.getSource() == easy )
+        if( e.getSource() == easy )
         {
           current_level = LVL_EASY;
           if( current_op == OP_ADD ) {

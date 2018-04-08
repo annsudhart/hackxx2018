@@ -1,10 +1,11 @@
 package backend;
+import java.util.Random;
 
 public class PEMDASOrder {
 
-  private static int EASY = 0;
-  private static int MED = 0;
-  private static int HARD = 0;
+  private final static int EASY = 0;
+  private final static int MED = 1;
+  private final static int HARD = 2;
 
   private int difficulty;
   private String buttonChoice;
@@ -94,18 +95,18 @@ public class PEMDASOrder {
 
   public String[] promptGenerator() {
     String[] answerAndPrompt = new String[2];
-    String[] operatorList = new String[4];
+    String[] operatorList = new String[4]{" + "," - ", " / ", " * "};
     // Minimum amount of numbers in equation is 3
+    Random ran = new Random();
     int amountNumsInEquation = ran.nextInt(2) + 3;
     // Generate all numbers in equation
     int[] equationNums = numberGenerator(amountNumsInEquation);
-    int answer = -1;
+    String equationWithEqualSign = "";
     String answer = "";
-    // int[] equationNumsWithAnswer = new int[equationNums.length + 1]; 
+    // int[] equationNumsWithAnswer = new int[equationNums.length + 1];
     switch (buttonChoice) {
       case "a":
         // (x * y) + z
-        operatorList = {" + "," - ", " / ", " * "};
         System.out.println("PEMDAS Option 'a' chosen.");
         // answer = calculateAnswer(equationNums);
         equationWithEqualSign = equationNums[0];
@@ -131,33 +132,40 @@ public class PEMDASOrder {
         }
         equationWithEqualSign += ( " = " );
         break;
-      case "b";
+      case "b":
         System.out.println("PEMDAS Option 'b' chosen.");
 
         break;
-      case "c";
+
+      case "c":
         System.out.println("PEMDAS Option 'c' chosen.");
         break;
-      case "d";
+
+      case "d":
         System.out.println("PEMDAS Option 'd' chosen.");
         break;
-      case "e";
+
+      case "e":
         System.out.println("PEMDAS Option 'e' chosen.");
         break;
-      case "f";
+
+      case "f":
         System.out.println("PEMDAS Option 'f' chosen.");
         break;
-      case "g";
+
+      case "g":
         System.out.println("PEMDAS Option 'g' chosen.");
         break;
-      case "h";
+
+      case "h":
         System.out.println("PEMDAS Option 'h' chosen.");
         break;
+
       default:
         System.out.println("button choice does not exist");
     }
     answerAndPrompt[0] = answer;
     answerAndPrompt[1] = equationWithEqualSign;
-    return problemToSolve;
+    return answerAndPrompt;
   }
 }

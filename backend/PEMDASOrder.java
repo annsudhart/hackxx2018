@@ -35,25 +35,7 @@ public class PEMDASOrder {
         break;
     }
   }
-  /*
-  public void getAmountNumsInEquation() {
-    switch (difficulty) {
-      case 1:
-        amountNumsInEquation = 3;
-        break;
-      case 2:
-        amountNumsInEquation = 4;
-        break;
-      case 3:
-        amountNumsInEquation = 5;
-        break;
-      default:
-        System.out.println("Invalid difficulty level.
-          Cannot determine number of equation numbers.");
-        break;
-    }
-  }
-*/
+
   public int[] numberGenerator(int amountNumsInEquation) {
     int[] equationNums = new int[amountNumsInEquation];
     Random ran = new Random();
@@ -69,29 +51,9 @@ public class PEMDASOrder {
     for (int i = 0; i < equationNums.length; i += 1) {
       equationNums[i] = ran.nextInt(this.range) + base;
     }
+    System.out.println(equationNums);
     return equationNums;
   }
-  /*
-  public String calculateAnswer(int[] equationNums) {
-    Random ran = new Random();
-
-    for (int i = 0; i < equationNums.length; i += 1) {
-
-    }
-    int answer = -1;
-    if (equationNums.length == 3) {
-      answer = equationNums[0] + equationNums[1] - equationNums[2];
-    } else if (equationNums.length == 4) {
-      answer = equationNums[0] + equationNums[1]
-                - equationNums[2] / equationNums[3];
-    } else if (equationNums.length == 5) {
-      answer = equationNums[0] + equationNums[1]
-                - equationNums[2] / equationNums[3] * equationNums[4];
-    }
-    return answer;
-  }
-  */
-
 
   public String[] promptGenerator() {
     String[] answerAndPrompt = new String[2];

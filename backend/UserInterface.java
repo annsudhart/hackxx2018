@@ -255,8 +255,8 @@ public class UserInterface extends JPanel implements ActionListener
         finalAnswer.setBounds(587,362,96,70);
         this.add(finalAnswer);
 
-	encouragement = new JTextField(50);
-	encouragement.setBounds(155,400,370,40);
+	encouragement = new JTextPane();
+	encouragement.setBounds(165,435,370,40);
 	this.add(encouragement);
 
    		/*searchResultsPane = new JTextPane();

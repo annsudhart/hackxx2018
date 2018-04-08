@@ -370,16 +370,6 @@ public class UserInterface extends JPanel implements ActionListener
 	    System.out.println("order A was pressed");
             letterOptionPressedLast = true;
             aOptionPressedLast = true;
-            /*
-            if( e.getSource() == easy) {
-              current_level = LVL_EASY;
-            } else if (e.getSource() == medium) {
-              current_level = LVL_MEDIUM;
-
-            } else if (e.getSource() == hard) {
-              current_level = LVL_HARD;
-            }
-            */
     }
 
 	else if( e.getSource() == orderB )
@@ -438,7 +428,8 @@ public class UserInterface extends JPanel implements ActionListener
         // this is for difficulty level
         if( e.getSource() == easy )
         {
-          current_level = LVL_EASY;
+          this.current_level = LVL_EASY;
+          System.out.println("current level: " + current_level);
           if (letterOptionPressedLast) {
             if(aOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");
@@ -508,7 +499,8 @@ public class UserInterface extends JPanel implements ActionListener
 
         else if( e.getSource() == medium )
         {
-          current_level = LVL_MEDIUM;
+          this.current_level = LVL_MEDIUM;
+          System.out.println("current level: " + current_level);
           if (letterOptionPressedLast) {
             if(aOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");
@@ -578,8 +570,8 @@ public class UserInterface extends JPanel implements ActionListener
 
         else if( e.getSource() == hard )
         {
-          current_level = LVL_HARD;
-
+          this.current_level = LVL_HARD;
+          System.out.println("current level: " + current_level);
           if (letterOptionPressedLast) {
             if(aOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");

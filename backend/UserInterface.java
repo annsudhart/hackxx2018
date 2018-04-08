@@ -73,7 +73,6 @@ public class UserInterface extends JPanel implements ActionListener
 	// text
 	private JTextPane questionPrompt;
     private JTextPane help;
-    private JTextPane encouragement;
 
 
     // background image
@@ -256,9 +255,6 @@ public class UserInterface extends JPanel implements ActionListener
         finalAnswer.setBounds(587,362,96,70);
         this.add(finalAnswer);
 
-	encouragement = new JTextField(50);
-	encouragement.setBounds(155,400,370,40);
-	this.add(encouragement);
 
    		/*searchResultsPane = new JTextPane();
         searchResultsPane.setBounds(530,40,235,180);

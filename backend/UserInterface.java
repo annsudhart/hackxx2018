@@ -96,6 +96,11 @@ public class UserInterface extends JPanel implements ActionListener
 
   private boolean submitPressed = false;
   private boolean letterOptionPressedLast = false;
+  private boolean aOptionPressed = false;
+  private boolean bOptionPressed = false;
+  private boolean dOptionPressed = false;
+  private boolean eOptionPressed = false;
+  private boolean fOptionPressed = false;
 
 	public UserInterface()
 	{
@@ -377,7 +382,7 @@ public class UserInterface extends JPanel implements ActionListener
             if(aOptionPressed) {
               pOrder = new PEMDASOrder(this.current_level, "a");
             } else if(bOptionPressed) {
-              pOrder = new PEMDASOrder(this.current_level, "a");
+              pOrder = new PEMDASOrder(this.current_level, "b");
             }
 
             String[] answerAndPrompt = pOrder.promptGenerator();

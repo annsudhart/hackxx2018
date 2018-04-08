@@ -79,7 +79,7 @@ public class UserInterface extends JPanel implements ActionListener
     // background image
     BufferedImage background;
     Image bgResized;
-    
+
     // font and size
     Font myFont = new Font( "Helvetica", Font.BOLD, 15 );
 
@@ -325,59 +325,47 @@ public class UserInterface extends JPanel implements ActionListener
 		}
 
 		// this is for order operations
-    // this is for order operations
-    if( (e.getSource() == orderA ||
-        e.getSource() == orderB ||
-        e.getSource() == orderC ||
-        e.getSource() == orderD ||
-        e.getSource() == orderE ||
-        e.getSource() == orderF ||
-        e.getSource() == orderG ||
-        e.getSource() == orderH ) &&
-        this.current_level == -1) {
-          System.out.println("Please choose a difficulty level first.");
-    } else { // Make sure difficulty level is already
-      if( e.getSource() == orderA )
-      {
-              PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
-              System.out.println("order A was pressed");
-      }
+    if( e.getSource() == orderA )
+    {
+            PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
+            System.out.println("order A was pressed");
+    }
 
-  		else if( e.getSource() == orderB )
-          {
-            System.out.println("order B was pressed");
-          }
+		else if( e.getSource() == orderB )
+        {
+          System.out.println("order B was pressed");
+        }
 
-          else if( e.getSource() == orderC )
-          {
-            System.out.println("order C was pressed");
-          }
+        else if( e.getSource() == orderC )
+        {
+          System.out.println("order C was pressed");
+        }
 
-          else if( e.getSource() == orderD )
-          {
-            System.out.println("order D was pressed");
-          }
+        else if( e.getSource() == orderD )
+        {
+          System.out.println("order D was pressed");
+        }
 
-          else if( e.getSource() == orderE )
-          {
-            System.out.println("order E was pressed");
-          }
+        else if( e.getSource() == orderE )
+        {
+          System.out.println("order E was pressed");
+        }
 
-          else if( e.getSource() == orderF )
-          {
-            System.out.println("order F was pressed");
-          }
+        else if( e.getSource() == orderF )
+        {
+          System.out.println("order F was pressed");
+        }
 
-          else if( e.getSource() == orderG )
-          {
-            System.out.println("order G was pressed");
-          }
+        else if( e.getSource() == orderG )
+        {
+          System.out.println("order G was pressed");
+        }
 
-          else if( e.getSource() == orderH )
-          {
-            System.out.println("order H was pressed");
-          }
-      }
+        else if( e.getSource() == orderH )
+        {
+          System.out.println("order H was pressed");
+        }
+      
         // this is for difficulty level
         if( e.getSource() == easy )
         {
@@ -528,16 +516,16 @@ public class UserInterface extends JPanel implements ActionListener
         {
           System.out.println("pass was pressed");
         }
-	
+
 	// this is for actions in the prompts (ID, workspace..)
 	if( e.getSource() == userID ) {
 	  // user is commenting in workspace, prompt goes away
 	  //TODO
 	  userID.setText( "" );
 	}
-		
+
 	else if( e.getSource() == workspace ) {
-	  // user is commenting in workspace, prompt goes away 
+	  // user is commenting in workspace, prompt goes away
 	  //TODO
 	  workspace.setText( "" );
 	}

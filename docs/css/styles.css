@@ -1,24 +1,50 @@
-body {
-  width: 70%;
-  margin: 60px auto;
+html, body {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background-color: #b9acb7;
+  margin-bottom: 0px;
+}
+
+#wrapper {
+  width: 60%;
+  height: 100%;
+  background-color: #fffbff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#img {
+  height: 300px;
+  width: 450px;
+  background-color: pink;
 }
 
 h1 {
-  font-size: 3em;
-  color: #746773;
+  font-size: 4em;
+  font-family: 'Comfortaa', cursive;
+  color: #363536;
 }
 
 h3 {
-  font-size:1em;
+  font-size:2em;
   margin: 0 auto;
 }
 
 #button {
+  font-family: 'Lato', sans-serif;
   position: relative;
   border-radius: 25px;
-  border: 3px solid #fda115;
+  border: 3px solid #363536;
+  background-color: #5d555b;
+  color: #fda115;
   padding: 10px; 
-  width: 110px;
+  width: 120px;
   display: block;  
   margin: auto;
+  font-size: 
+}
+
+.division {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }

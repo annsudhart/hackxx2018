@@ -76,7 +76,7 @@ public class UserInterface extends JPanel implements ActionListener
 	{		
 		try
 		{
-			background = ImageIO.read(new File("images/InterfaceArt.png"));
+			background = ImageIO.read(new File("media/InterfaceArt.png"));
 			/* if you guys want to access the image, you need it to be either in a folder
 			 * called images or you need to edit the code above
 			 */

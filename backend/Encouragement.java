@@ -38,6 +38,11 @@ public class Encouragement {
 	public String generateRandomEncouragement() {
 		Random r = new Random();
 		int index = r.nextInt(5);
+		System.out.println(oldIndex + " " + index);
+		while (index == oldIndex) {
+			index = r.nextInt(5);
+		}
+		int oldIndex = index;
 		return encouragement[index];
 	}
 

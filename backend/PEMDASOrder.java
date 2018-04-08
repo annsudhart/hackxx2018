@@ -14,6 +14,7 @@ public class PEMDASOrder {
 
   public PEMDASOrder(int difficulty, String buttonChoice) {
     this.buttonChoice = buttonChoice; // button pressed from options
+    this.getRange();
     // this.mfc = new MathFlashCard(difficulty);
   }
 
@@ -64,13 +65,12 @@ public class PEMDASOrder {
       case 1000:
         base = 100;
     }
-    for (int i = 0; i < numEquationNums; i += 1) {
+    for (int i = 0; i < equationNums.length; i += 1) {
       equationNums[i] = ran.nextInt(this.range) + base;
     }
     return equationNums;
   }
   /*
-  // TODO EDIT
   public String calculateAnswer(int[] equationNums) {
     Random ran = new Random();
 

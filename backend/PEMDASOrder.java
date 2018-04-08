@@ -95,7 +95,7 @@ public class PEMDASOrder {
 
   public String[] promptGenerator() {
     String[] answerAndPrompt = new String[2];
-    String[] operatorList = new String[4]{" + "," - ", " / ", " * "};
+    String[] operatorList = new String[]{" + "," - ", " / ", " * "};
     // Minimum amount of numbers in equation is 3
     Random ran = new Random();
     int amountNumsInEquation = ran.nextInt(2) + 3;
@@ -109,7 +109,7 @@ public class PEMDASOrder {
         // (x * y) + z
         System.out.println("PEMDAS Option 'a' chosen.");
         // answer = calculateAnswer(equationNums);
-        equationWithEqualSign = equationNums[0];
+        equationWithEqualSign += equationNums[0];
         for (int i = 1; i < equationNums.length - 1; i += 1) {
           equationWithEqualSign += operatorList[i - 1];
           equationWithEqualSign += equationNums[i];
@@ -117,14 +117,14 @@ public class PEMDASOrder {
 
         switch(equationNums.length) {
           case 3:
-            answer = equationNums[0] + equationNums[1] - equationNums[2];
+            answer += equationNums[0] + equationNums[1] - equationNums[2];
             break;
           case 4:
-            answer = equationNums[0] + equationNums[1] - equationNums[2]
+            answer += equationNums[0] + equationNums[1] - equationNums[2]
                       / equationNums[3];
             break;
           case 5:
-            answer = equationNums[0] + equationNums[1] - equationNums[2]
+            answer += equationNums[0] + equationNums[1] - equationNums[2]
                       / equationNums[3] * equationNums[4];
             break;
           default:

@@ -26,13 +26,13 @@ public class UserInterface extends JPanel implements ActionListener
     private static int LVL_EASY = 0;
     private static int LVL_MEDIUM = 1;
     private static int LVL_HARD = 2;
-    private int current_level = -1;
+    private int current_level = -1; // the current difficulty lvl
 
     private static int OP_ADD = 0;
     private static int OP_SUBTRACT = 1;
     private static int OP_MULTIPLY = 2;
     private static int OP_DIVIDE = 3;
-    private int current_op = -1;
+    private int current_op = -1; // current math operation selected
 
     private static final int BTN_W = 31;
     private static final int BTN_H = 29;
@@ -46,14 +46,14 @@ public class UserInterface extends JPanel implements ActionListener
     private static final int DIFF_X = 595;
 
     // math flash cards buttons
-	private JButton add;
-	private JButton subtract;
-	private JButton multiply;
-	private JButton divide;
-	// order operations buttons
-	private JButton orderA;
-	private JButton orderB;
-	private JButton orderC;
+    private JButton add;
+    private JButton subtract;
+    private JButton multiply;
+    private JButton divide;
+    // order operations buttons
+    private JButton orderA;
+    private JButton orderB;
+    private JButton orderC;
 	private JButton orderD;
 	private JButton orderE;
 	private JButton orderF;

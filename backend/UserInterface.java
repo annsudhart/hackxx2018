@@ -329,30 +329,14 @@ public class UserInterface extends JPanel implements ActionListener
     {
             System.out.println("order A was pressed");
             letterOptionPressedLast = true;
-            /*
-            if( e.getSource() == easy) {
-              current_level = LVL_EASY;
-            } else if (e.getSource() == medium) {
-              current_level = LVL_MEDIUM;
-
-            } else if (e.getSource() == hard) {
-              current_level = LVL_HARD;
-            }
-            */
-
-            if (letterOptionPressedLast) {
-              pOrder = new PEMDASOrder(this.current_level, "a");
-              String[] answerAndPrompt = pOrder.promptGenerator();
-              String answer = answerAndPrompt[0];
-              String prompt = answerAndPrompt[1];
-              question = "Please find: " + prompt;
-            }
-
+            aOptionPressed = true;
     }
 
 		else if( e.getSource() == orderB )
         {
           System.out.println("order B was pressed");
+          letterOptionPressedLast = true;
+          aOptionPressed = true;
         }
 
         else if( e.getSource() == orderC )
@@ -389,45 +373,61 @@ public class UserInterface extends JPanel implements ActionListener
         if( e.getSource() == easy )
         {
           current_level = LVL_EASY;
-          if( current_op == OP_ADD ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] addDigits = flashC.add();
-            /* stores the answer of the add function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = addDigits[2];
-            question = "Please find: " + addDigits[0] + " + " + addDigits[1];
-            System.out.println( "Q: " + addDigits[0] + " + " + addDigits[1] );
-          }
-          else if( current_op == OP_SUBTRACT ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] subDigits = flashC.subtract();
-            /* stores the answer of the subtract function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = subDigits[2];
-            question = "Please find: " + subDigits[0] + " - " + subDigits[1];
-            System.out.println( "Q: " + subDigits[0] + " - " + subDigits[1] );
-          }
-          else if( current_op == OP_MULTIPLY ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] multDigits = flashC.multiply();
-            /* stores the answer of the multiply function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = multDigits[2];
-            question = "Please find: " + multDigits[0] + " x " + multDigits[1];
-            System.out.println( "Q: " + multDigits[0] + " x " + multDigits[1] );
-          }
-          else if( current_op == OP_DIVIDE ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] divDigits = flashC.divide();
-            /* stores the answer of the divide function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = divDigits[2];
-            question = "Please find: " + + divDigits[0] + "/" + divDigits[1];
-            System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
+          if (letterOptionPressedLast) {
+            if(aOptionPressed) {
+              pOrder = new PEMDASOrder(this.current_level, "a");
+            } else if(bOptionPressed) {
+              pOrder = new PEMDASOrder(this.current_level, "a");
+            }
+
+            String[] answerAndPrompt = pOrder.promptGenerator();
+            String answer = answerAndPrompt[0];
+            String prompt = answerAndPrompt[1];
+            question = "Please find: " + prompt;
+            letterOptionPressedLast = false;
+            aOptionPressed = false;
+            bOptionPressed = false;
+          } else {
+            if( current_op == OP_ADD ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] addDigits = flashC.add();
+              /* stores the answer of the add function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = addDigits[2];
+              question = "Please find: " + addDigits[0] + " + " + addDigits[1];
+              System.out.println( "Q: " + addDigits[0] + " + " + addDigits[1] );
+            }
+            else if( current_op == OP_SUBTRACT ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] subDigits = flashC.subtract();
+              /* stores the answer of the subtract function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = subDigits[2];
+              question = "Please find: " + subDigits[0] + " - " + subDigits[1];
+              System.out.println( "Q: " + subDigits[0] + " - " + subDigits[1] );
+            }
+            else if( current_op == OP_MULTIPLY ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] multDigits = flashC.multiply();
+              /* stores the answer of the multiply function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = multDigits[2];
+              question = "Please find: " + multDigits[0] + " x " + multDigits[1];
+              System.out.println( "Q: " + multDigits[0] + " x " + multDigits[1] );
+            }
+            else if( current_op == OP_DIVIDE ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] divDigits = flashC.divide();
+              /* stores the answer of the divide function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = divDigits[2];
+              question = "Please find: " + + divDigits[0] + "/" + divDigits[1];
+              System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
+            }
           }
         }
 

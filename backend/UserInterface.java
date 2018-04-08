@@ -628,13 +628,12 @@ public class UserInterface extends JPanel implements ActionListener
              //user submits a final answer and we must parse it
 	     String answer = finalAnswer.getText();
 	     // in case someone submits an empty text
-	     if (answer.equals("")) {
-		     while (answer.equals("") {
-		     	System.err.println("No answer submitted");
-			answer = finalAnswer.getText();
-		     }
+	     try {
+	     	processedAnswer = Integer.parseInt(answer);
+	     } catch(Exception ex) {
+	     	System.err.println("Error in parsing");
+		processedAnswer = -1000000000;
 	     }
-	     processedAnswer = Integer.parseInt( answer );
 	    //if final answer is correct, display
 	    if( processedAnswer == correctAnswer ) {
 	        showCorrect = true;

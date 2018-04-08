@@ -1,6 +1,6 @@
 package backend;
 /*
- * Name: Nicole Trappe
+ * Name: Abirami Sambamoorthy, Andrea Sudharta, Nicole Trappe, Cora Yichen Xing
  * Hackathon, Spring '18
  * Date: 7 April 2018
  */

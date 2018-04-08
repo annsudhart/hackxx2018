@@ -1,6 +1,6 @@
 package backend;
 /*
- * Name: Nicole Trappe
+ * Name: Abirami Sambamoorthy, Andrea Sudharta, Nicole Trappe, Cora Yichen Xing
  * Hackathon, Spring '18
  * Date: 7 April 2018
  */
@@ -81,6 +81,7 @@ public class UserInterface extends JPanel implements ActionListener
     Image bgResized;
     BufferedImage correct;    //YOU GUYS MIGHT HAVE TO RESIZE
     BufferedImage incorrect;  //TODO
+    BufferedImage intro;
     private boolean showCorrect = false;
     private boolean showIncorrect = false;
 
@@ -140,6 +141,18 @@ public class UserInterface extends JPanel implements ActionListener
 		 System.out.println("Could not find incorrect image");
 		 System.exit(-1);
 	    }
+	    
+	    try {
+		 intro = ImageIO.read(new File("media/intro.png"));
+		 /* if you guys want to access the image, you need it to be either in a folder
+		 * called images or you need to edit the code above
+		  */
+	    }
+	    catch( IOException e ){
+		 System.out.println("Could not find intro image");
+		 System.exit(-1);
+	    }
+
 
 		this.setLayout(null);
 

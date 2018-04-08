@@ -85,6 +85,7 @@ public class UserInterface extends JPanel implements ActionListener
 
     // Math Flash Card object
     MathFlashCard flashC;
+    PEMDASOrder pOrder;
     int processedAnswer = -1;
     int correctAnswer = -1;
 
@@ -94,6 +95,7 @@ public class UserInterface extends JPanel implements ActionListener
     String IDPrompt = "Type your ID here...";
 
   private boolean submitPressed = false;
+  private boolean letterOptionPressedLast = false;
 
 	public UserInterface()
 	{
@@ -325,8 +327,26 @@ public class UserInterface extends JPanel implements ActionListener
 		// this is for order operations
     if( e.getSource() == orderA )
     {
-            PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
             System.out.println("order A was pressed");
+            letterOptionPressedLast = true;
+            /*
+            if( e.getSource() == easy) {
+              current_level = LVL_EASY;
+            } else if (e.getSource() == medium) {
+              current_level = LVL_MEDIUM;
+
+            } else if (e.getSource() == hard) {
+              current_level = LVL_HARD;
+            }
+            */
+
+            if (letterOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "a");
+              String[] answerAndPrompt = pOrder.promptGenerator();
+              String prompt =
+              question = "Please find: " + prompt;
+            }
+
     }
 
 		else if( e.getSource() == orderB )
@@ -363,7 +383,7 @@ public class UserInterface extends JPanel implements ActionListener
         {
           System.out.println("order H was pressed");
         }
-      
+
         // this is for difficulty level
         if( e.getSource() == easy )
         {

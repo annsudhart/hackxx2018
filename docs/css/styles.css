@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body {
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -11,18 +12,12 @@ html, body {
   background-color: #fffbff;
   margin-left: auto;
   margin-right: auto;
+  padding-right:5%;
+  padding-left:5%;
 }
 
-#img {
-  height: 300px;
-  width: 450px;
-  background-color: pink;
-}
-
-h1 {
-  font-size: 4em;
-  font-family: 'Comfortaa', cursive;
-  color: #363536;
+img {
+  width: 100%;
 }
 
 h3 {
@@ -48,3 +43,49 @@ h3 {
   margin-top: 16px;
   margin-bottom: 16px;
 }
+=======
+html, body {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background-color: #b9acb7;
+  margin-bottom: 0px;
+}
+
+#wrapper {
+  width: 60%;
+  height: 100%;
+  background-color: #fffbff;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right:5%;
+  padding-left:5%;
+}
+
+img {
+  width: 100%;
+}
+
+h3 {
+  font-size:2em;
+  margin: 0 auto;
+}
+
+#button {
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  border-radius: 25px;
+  border: 3px solid #363536;
+  background-color: #5d555b;
+  color: #fda115;
+  padding: 10px; 
+  width: 120px;
+  display: block;  
+  margin: auto;
+  font-size: 
+}
+
+.division {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+>>>>>>> 951cbf382ebda0caaceb1994aab480778f46a5e9

@@ -83,6 +83,8 @@ public class UserInterface extends JPanel implements ActionListener
     MathFlashCard flashC;
     int processedAnswer = -1;
     int correctAnswer = -1;
+    
+    // prompting
     String question = "The math question will appear here...";
     String workspacePrompt = "This is your workspace, start typing...":
     String IDPrompt = "Type your ID here...";

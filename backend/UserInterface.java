@@ -295,7 +295,7 @@ public class UserInterface extends JPanel implements ActionListener
 		pass.setBorderPainted(false);
 
 		encourageMe = new JButton("Encourage Me!");
-		encourageMe.setBounds(155, 455, 377, 90);
+		encourageMe.setBounds(155, 455, 404, 90);
 		encourageMe.addActionListener(this);
 		this.add(encourageMe);
 		encourageMe.setOpaque(false);
@@ -323,7 +323,7 @@ public class UserInterface extends JPanel implements ActionListener
         this.add(finalAnswer);
 
 	encouragement = new JTextPane();
-	encouragement.setBounds(172, 427, 377, 47);
+	encouragement.setBounds(169, 430, 404, 55);
 	this.add(encouragement);
    	/*searchResultsPane = new JTextPane();
         searchResultsPane.setBounds(530,40,235,180);

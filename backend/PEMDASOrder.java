@@ -95,18 +95,18 @@ public class PEMDASOrder {
 
   public String[] promptGenerator() {
     String[] answerAndPrompt = new String[2];
-    String[] operatorList = new String[4];
+    String[] operatorList = new String[4]{" + "," - ", " / ", " * "};
     // Minimum amount of numbers in equation is 3
+    Random ran = new Random();
     int amountNumsInEquation = ran.nextInt(2) + 3;
     // Generate all numbers in equation
     int[] equationNums = numberGenerator(amountNumsInEquation);
-    int answer = -1;
+    String equationWithEqualSign = "";
     String answer = "";
     // int[] equationNumsWithAnswer = new int[equationNums.length + 1];
     switch (buttonChoice) {
       case "a":
         // (x * y) + z
-        operatorList = {" + "," - ", " / ", " * "};
         System.out.println("PEMDAS Option 'a' chosen.");
         // answer = calculateAnswer(equationNums);
         equationWithEqualSign = equationNums[0];
@@ -166,6 +166,6 @@ public class PEMDASOrder {
     }
     answerAndPrompt[0] = answer;
     answerAndPrompt[1] = equationWithEqualSign;
-    return problemToSolve;
+    return answerAndPrompt;
   }
 }

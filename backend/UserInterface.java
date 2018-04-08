@@ -323,7 +323,7 @@ public class UserInterface extends JPanel implements ActionListener
         e.getSource() == orderF ||
         e.getSource() == orderG ||
         e.getSource() == orderH ) &&
-        this.current_level == null) {
+        this.current_level == -1) {
           System.out.println("Please choose a difficulty level first.");
     } else { // Make sure difficulty level is already
       if( e.getSource() == orderA )

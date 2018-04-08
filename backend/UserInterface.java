@@ -86,7 +86,7 @@ public class UserInterface extends JPanel implements ActionListener
     
     // prompting
     String question = "The math question will appear here...";
-    String workspacePrompt = "This is your workspace, start typing...":
+    String workspacePrompt = "This is your workspace, start typing...";
     String IDPrompt = "Type your ID here...";
 
   private boolean submitPressed = false;

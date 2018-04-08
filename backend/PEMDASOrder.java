@@ -43,10 +43,15 @@ public class PEMDASOrder {
     switch (this.range) {
       case 10:
         base = 1;
+        break;
       case 100:
         base = 10;
+        break;
       case 1000:
         base = 100;
+        break;
+      default:
+        break;
     }
     for (int i = 0; i < equationNums.length; i += 1) {
       equationNums[i] = ran.nextInt(this.range) + base;
@@ -82,7 +87,7 @@ public class PEMDASOrder {
         System.out.println("PEMDAS Option 'a' chosen.");
         // answer = calculateAnswer(equationNums);
         equationWithEqualSign += equationNums[0];
-        for (int i = 1; i < equationNums.length - 1; i += 1) {
+        for (int i = 1; i < equationNums.length; i += 1) {
           equationWithEqualSign += operatorList[i - 1];
           equationWithEqualSign += equationNums[i];
         }

@@ -100,6 +100,8 @@ public class UserInterface extends JPanel implements ActionListener
 
   private boolean submitPressed = false;
   private boolean letterOptionPressedLast = false;
+  private boolean aOptionPressedLast = false;
+  private boolean bOptionPressedLast = false;
 
 	public UserInterface()
 	{
@@ -437,6 +439,11 @@ public class UserInterface extends JPanel implements ActionListener
             String answer = answerAndPrompt[0];
             String prompt = answerAndPrompt[1];
             question = "Please find: " + prompt;
+
+            letterOptionPressedLast = false;
+            aOptionPressedLast = false;
+            bOptionPressedLast = false;
+
           } else {
             if( current_op == OP_ADD ) {
               flashC = new MathFlashCard( current_level );

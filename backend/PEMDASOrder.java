@@ -1,10 +1,11 @@
 package backend;
+import java.util.Random;
 
 public class PEMDASOrder {
 
   private final static int EASY = 0;
-  private final static int MED = 0;
-  private final static int HARD = 0;
+  private final static int MED = 1;
+  private final static int HARD = 2;
 
   private int difficulty;
   private String buttonChoice;

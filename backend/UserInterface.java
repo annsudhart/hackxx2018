@@ -368,7 +368,7 @@ public class UserInterface extends JPanel implements ActionListener
           }
       }
         // this is for difficulty level
-        else if( e.getSource() == easy )
+        if( e.getSource() == easy )
         {
           current_level = LVL_EASY;
           if( current_op == OP_ADD ) {

@@ -28,3 +28,31 @@ Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/annsud
 
 !ENTRY org.eclipse.egit.ui 4 0 2018-04-07 20:58:11.109
 !MESSAGE Can't connect to any repository: https://github.com/annsudhart/hackxx2018.git (https://github.com/annsudhart/hackxx2018.git: git-receive-pack not permitted on 'https://github.com/annsudhart/hackxx2018.git/')
+!SESSION 2018-04-08 09:21:43.184 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180301-0715
+java.version=1.8.0_162
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/coraxyc/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/coraxyc/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-08 09:21:49.906
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2018-04-08 09:21:56.511
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: For input string: "1 2". ; version: 2.0.7.v20170906-1327
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 2"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitSegmentsFileName(SegmentInfos.java:216)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:903)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.rest.LuceneHttpCacheStorage.<init>(LuceneHttpCacheStorage.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.rest.RestBasedProblemsHistory.<init>(RestBasedProblemsHistory.java:83)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.createRestBasedProblemsHistory(ServerConnection.java:183)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:140)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Thread.java:748)

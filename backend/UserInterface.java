@@ -72,8 +72,8 @@ public class UserInterface extends JPanel implements ActionListener
 	private JTextField finalAnswer;
 	// text
 	private JTextPane questionPrompt;
-    private JTextPane help;
-    private JTextPane encouragement;
+        private JTextPane help;
+        private JTextPane encouragement;
 
 
     // background image
@@ -92,7 +92,7 @@ public class UserInterface extends JPanel implements ActionListener
 		try
 		{
 			background = ImageIO.read(new File("media/InterfaceArt.png"));
-      bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
+    			bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
 			/* if you guys want to access the image, you need it to be either in a folder
 			 * called images or you need to edit the code above
 			 */
@@ -194,13 +194,13 @@ public class UserInterface extends JPanel implements ActionListener
 		orderG.setContentAreaFilled(false);
 		orderG.setBorderPainted(false);
 
-		orderG = new JButton("");
-		orderG.setBounds(112,12,55,BTN_H);
-		orderG.addActionListener(this);
-		this.add(orderG);
-		orderG.setOpaque(false);
-		orderG.setContentAreaFilled(false);
-		orderG.setBorderPainted(false);
+		orderH = new JButton("");
+		orderH.setBounds(112,PEM_Y2,BTN_W,BTN_H);
+		orderH.addActionListener(this);
+		this.add(orderH);
+		orderH.setOpaque(false);
+		orderH.setContentAreaFilled(false);
+		orderH.setBorderPainted(false);
 
 		easy = new JButton("");
 		easy.setBounds(594,169,LVL_W,LVL_H);

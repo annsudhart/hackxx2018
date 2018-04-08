@@ -14,12 +14,14 @@ public class PEMDASOrder {
   // private MathFlashCard mfc;
 
   public PEMDASOrder(int difficulty, String buttonChoice) {
+    this.difficulty = difficulty;
     this.buttonChoice = buttonChoice; // button pressed from options
     this.getRange();
     // this.mfc = new MathFlashCard(difficulty);
   }
 
   public void getRange() {
+    System.out.println(this.difficulty);
     switch (this.difficulty) {
       case EASY:
         this.range = 10;
@@ -55,6 +57,7 @@ public class PEMDASOrder {
     }
     for (int i = 0; i < equationNums.length; i += 1) {
       equationNums[i] = ran.nextInt(this.range) + base;
+      System.out.println("base: " + base);
     }
     System.out.println("Generated random numbers");
     printIntArrayNums(equationNums);
@@ -97,10 +100,16 @@ public class PEMDASOrder {
             answer += equationNums[0] + equationNums[1] - equationNums[2];
             break;
           case 4:
+            while (equationNums[2] % equationNums[3] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] + equationNums[1] - equationNums[2]
                       / equationNums[3];
             break;
           case 5:
+            while (equationNums[2] % equationNums[3] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] + equationNums[1] - equationNums[2]
                       / equationNums[3] * equationNums[4];
             break;
@@ -120,13 +129,22 @@ public class PEMDASOrder {
 
         switch(equationNums.length) {
           case 3:
+            while (equationNums[0] % equationNums[1] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] / equationNums[1] - equationNums[2];
             break;
           case 4:
+            while (equationNums[0] % equationNums[1] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] / equationNums[1] - equationNums[2]
                       + equationNums[3];
             break;
           case 5:
+            while (equationNums[0] % equationNums[1] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] / equationNums[1] - equationNums[2]
                       + equationNums[3] * equationNums[4];
             break;
@@ -155,6 +173,9 @@ public class PEMDASOrder {
                       + equationNums[3];
             break;
           case 5:
+            while (equationNums[3] % equationNums[4] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] - equationNums[1] * equationNums[2]
                       + equationNums[3] / equationNums[4];
             break;

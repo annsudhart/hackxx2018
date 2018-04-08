@@ -95,9 +95,14 @@ public class UserInterface extends JPanel implements ActionListener
 
     // prompting
     String question = "The math question will appear here...";
+<<<<<<< HEAD
     String workspacePrompt = "This is your workspace, start typing...";
     String IDPrompt = "Type your ID here...";
     Encouragement goodWords = new Encouragement();
+=======
+    String workspacePrompt = "    This is your workspace, start typing...";
+    String IDPrompt = "  Type your ID here...";
+>>>>>>> aa84c29b785fc7881e78d9e8bed51cbf0ee9a940
 
   private boolean submitPressed = false;
   private boolean letterOptionPressedLast = false;
@@ -292,7 +297,7 @@ public class UserInterface extends JPanel implements ActionListener
 
 	// text field entries
         userID = new JTextField(50);
-        userID.setBounds(6,4,140,29);
+        userID.setBounds(7,4,140,31);
 	      userID.setText( IDPrompt );
         userID.setFont( myFont );
         userID.addActionListener(this);
@@ -335,17 +340,19 @@ public class UserInterface extends JPanel implements ActionListener
         g.drawImage( bgResized, 0, 0, null );
 
 	// correct/incorrect images (initially invisible)
-        if( showCorrect )
-            g.drawImage( correct, 1040, 500, null );
-	      if( showIncorrect )
-            g.drawImage( incorrect, 1040, 500, null );
+        if( showCorrect ) {
+            g.drawImage( correct, 585, 270, null );
+	}
+	if( showIncorrect ) {
+            g.drawImage( incorrect, 585, 270, null );
+	}
 
 	// font
         g.setColor( Color.BLACK );
 	g.setFont( myFont );
 
         // this is the prompts
-        g.drawString( question, 204, 35 );
+        g.drawString( question, 195, 35 );
     }
 
     public void actionPerformed(ActionEvent e)
@@ -383,16 +390,6 @@ public class UserInterface extends JPanel implements ActionListener
 	    System.out.println("order A was pressed");
             letterOptionPressedLast = true;
             aOptionPressedLast = true;
-            /*
-            if( e.getSource() == easy) {
-              current_level = LVL_EASY;
-            } else if (e.getSource() == medium) {
-              current_level = LVL_MEDIUM;
-
-            } else if (e.getSource() == hard) {
-              current_level = LVL_HARD;
-            }
-            */
     }
 
 	else if( e.getSource() == orderB )
@@ -458,7 +455,8 @@ public class UserInterface extends JPanel implements ActionListener
         // this is for difficulty level
         if( e.getSource() == easy )
         {
-          current_level = LVL_EASY;
+          this.current_level = LVL_EASY;
+          System.out.println("current level: " + current_level);
           if (letterOptionPressedLast) {
             if(aOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");
@@ -528,7 +526,8 @@ public class UserInterface extends JPanel implements ActionListener
 
         else if( e.getSource() == medium )
         {
-          current_level = LVL_MEDIUM;
+          this.current_level = LVL_MEDIUM;
+          System.out.println("current level: " + current_level);
           if (letterOptionPressedLast) {
             if(aOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");
@@ -598,8 +597,8 @@ public class UserInterface extends JPanel implements ActionListener
 
         else if( e.getSource() == hard )
         {
-          current_level = LVL_HARD;
-
+          this.current_level = LVL_HARD;
+          System.out.println("current level: " + current_level);
           if (letterOptionPressedLast) {
             if(aOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");

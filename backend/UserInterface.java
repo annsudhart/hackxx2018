@@ -95,8 +95,8 @@ public class UserInterface extends JPanel implements ActionListener
 
     // prompting
     String question = "The math question will appear here...";
-    String workspacePrompt = "This is your workspace, start typing...";
-    String IDPrompt = "Type your ID here...";
+    String workspacePrompt = "    This is your workspace, start typing...";
+    String IDPrompt = "  Type your ID here...";
 
   private boolean submitPressed = false;
   private boolean letterOptionPressedLast = false;
@@ -282,7 +282,7 @@ public class UserInterface extends JPanel implements ActionListener
 
 	// text field entries
         userID = new JTextField(50);
-        userID.setBounds(6,4,140,29);
+        userID.setBounds(7,4,140,31);
 	      userID.setText( IDPrompt );
         userID.setFont( myFont );
         userID.addActionListener(this);
@@ -334,7 +334,7 @@ public class UserInterface extends JPanel implements ActionListener
 	g.setFont( myFont );
 
         // this is the prompts
-        g.drawString( question, 204, 35 );
+        g.drawString( question, 195, 35 );
     }
 
     public void actionPerformed(ActionEvent e)

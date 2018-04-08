@@ -322,10 +322,12 @@ public class UserInterface extends JPanel implements ActionListener
         g.drawImage( bgResized, 0, 0, null );
 
 	// correct/incorrect images (initially invisible)
-        if( showCorrect )
+        if( showCorrect ) {
             g.drawImage( correct, 1040, 500, null );
-	      if( showIncorrect )
+	}
+	if( showIncorrect ) {
             g.drawImage( incorrect, 1040, 500, null );
+	}
 
 	// font
         g.setColor( Color.BLACK );

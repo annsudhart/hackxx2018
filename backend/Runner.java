@@ -1,3 +1,4 @@
+package backend;
 import javax.swing.JFrame;
 public class Runner
 {
@@ -5,9 +6,9 @@ public class Runner
     {
         UserInterface anya = new UserInterface();
         JFrame frame = new JFrame("anya");
-         
+
         frame.add(anya);
- 
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

@@ -327,12 +327,7 @@ public class UserInterface extends JPanel implements ActionListener
           System.out.println("Please choose a difficulty level first.");
     } else { // Make sure difficulty level is already
       if( e.getSource() == orderA )
-          {
-              if (this.current_level == null) {
-
-              } else {
-
-              }
+      {
               PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
               System.out.println("order A was pressed");
       }
@@ -367,13 +362,12 @@ public class UserInterface extends JPanel implements ActionListener
             System.out.println("order G was pressed");
           }
 
-          // this is for difficulty level
-          if( e.getSource() == orderH )
+          else if( e.getSource() == orderH )
           {
             System.out.println("order H was pressed");
           }
-        }
-
+      }
+        // this is for difficulty level
         else if( e.getSource() == easy )
         {
           current_level = LVL_EASY;

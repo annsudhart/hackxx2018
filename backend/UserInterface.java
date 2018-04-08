@@ -81,7 +81,7 @@ public class UserInterface extends JPanel implements ActionListener
     Image bgResized;
     BufferedImage correct;    //YOU GUYS MIGHT HAVE TO RESIZE
     BufferedImage incorrect;  //TODO
-    private boolean showCorrect = false; 
+    private boolean showCorrect = false;
     private boolean showIncorrect = false;
 
     // font and size
@@ -114,7 +114,7 @@ public class UserInterface extends JPanel implements ActionListener
 		 System.out.println("Could not find file");
 		 System.exit(-1);
 	    }
-		
+
 	    try {
 		 correct = ImageIO.read(new File("media/correct.png"));
 		 /* if you guys want to access the image, you need it to be either in a folder
@@ -125,7 +125,7 @@ public class UserInterface extends JPanel implements ActionListener
 		 System.out.println("Could not find correct image");
 		 System.exit(-1);
 	    }
-		
+
 	    try {
 		 incorrect = ImageIO.read(new File("media/incorrect.png"));
 		 /* if you guys want to access the image, you need it to be either in a folder
@@ -317,17 +317,17 @@ public class UserInterface extends JPanel implements ActionListener
         g.setColor( Color.gray );
        	g.fillRect( 0, 0, 583, 350 );
         g.drawImage( bgResized, 0, 0, null );
-	
+
 	// correct/incorrect images (initially invisible)
         if( showCorrect )
             g.drawImage( correct, 1040, 500, null );
 	if( showIncorrect )
             g.drawImage( incorrect, 1040, 500, null );
-        
+
 	// font
         g.setColor( Color.BLACK );
 	g.setFont( myFont );
-	
+
         // this is the prompts
         g.drawString( question, 204, 35 );
     }
@@ -376,15 +376,6 @@ public class UserInterface extends JPanel implements ActionListener
               current_level = LVL_HARD;
             }
             */
-
-            if (letterOptionPressedLast) {
-              pOrder = new PEMDASOrder(this.current_level, "a");
-              String[] answerAndPrompt = pOrder.promptGenerator();
-              String answer = answerAndPrompt[0];
-              String prompt = answerAndPrompt[1];
-              question = "Please find: " + prompt;
-            }
-
     }
 
 	else if( e.getSource() == orderB )
@@ -440,45 +431,53 @@ public class UserInterface extends JPanel implements ActionListener
         if( e.getSource() == easy )
         {
           current_level = LVL_EASY;
-          if( current_op == OP_ADD ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] addDigits = flashC.add();
-            /* stores the answer of the add function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = addDigits[2];
-            question = "Please find: " + addDigits[0] + " + " + addDigits[1];
-            System.out.println( "Q: " + addDigits[0] + " + " + addDigits[1] );
-          }
-          else if( current_op == OP_SUBTRACT ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] subDigits = flashC.subtract();
-            /* stores the answer of the subtract function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = subDigits[2];
-            question = "Please find: " + subDigits[0] + " - " + subDigits[1];
-            System.out.println( "Q: " + subDigits[0] + " - " + subDigits[1] );
-          }
-          else if( current_op == OP_MULTIPLY ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] multDigits = flashC.multiply();
-            /* stores the answer of the multiply function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = multDigits[2];
-            question = "Please find: " + multDigits[0] + " x " + multDigits[1];
-            System.out.println( "Q: " + multDigits[0] + " x " + multDigits[1] );
-          }
-          else if( current_op == OP_DIVIDE ) {
-            flashC = new MathFlashCard( current_level );
-            // takes in the int array of the MathFlashC
-            int[] divDigits = flashC.divide();
-            /* stores the answer of the divide function (we will use this to compare
-            with our submitted answer */
-            correctAnswer = divDigits[2];
-            question = "Please find: " + + divDigits[0] + "/" + divDigits[1];
-            System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
+          if (letterOptionPressedLast) {
+            pOrder = new PEMDASOrder(this.current_level, "a");
+            String[] answerAndPrompt = pOrder.promptGenerator();
+            String answer = answerAndPrompt[0];
+            String prompt = answerAndPrompt[1];
+            question = "Please find: " + prompt;
+          } else {
+            if( current_op == OP_ADD ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] addDigits = flashC.add();
+              /* stores the answer of the add function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = addDigits[2];
+              question = "Please find: " + addDigits[0] + " + " + addDigits[1];
+              System.out.println( "Q: " + addDigits[0] + " + " + addDigits[1] );
+            }
+            else if( current_op == OP_SUBTRACT ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] subDigits = flashC.subtract();
+              /* stores the answer of the subtract function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = subDigits[2];
+              question = "Please find: " + subDigits[0] + " - " + subDigits[1];
+              System.out.println( "Q: " + subDigits[0] + " - " + subDigits[1] );
+            }
+            else if( current_op == OP_MULTIPLY ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] multDigits = flashC.multiply();
+              /* stores the answer of the multiply function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = multDigits[2];
+              question = "Please find: " + multDigits[0] + " x " + multDigits[1];
+              System.out.println( "Q: " + multDigits[0] + " x " + multDigits[1] );
+            }
+            else if( current_op == OP_DIVIDE ) {
+              flashC = new MathFlashCard( current_level );
+              // takes in the int array of the MathFlashC
+              int[] divDigits = flashC.divide();
+              /* stores the answer of the divide function (we will use this to compare
+              with our submitted answer */
+              correctAnswer = divDigits[2];
+              question = "Please find: " + + divDigits[0] + "/" + divDigits[1];
+              System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
+            }
           }
         }
 

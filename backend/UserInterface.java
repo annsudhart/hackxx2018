@@ -100,6 +100,9 @@ public class UserInterface extends JPanel implements ActionListener
 
   private boolean submitPressed = false;
   private boolean letterOptionPressedLast = false;
+  private boolean aOptionPressedLast = false;
+  private boolean bOptionPressedLast = false;
+  private boolean cOptionPressedLast = false;
 
 	public UserInterface()
 	{
@@ -366,6 +369,7 @@ public class UserInterface extends JPanel implements ActionListener
             showIncorrect = false;
 	    System.out.println("order A was pressed");
             letterOptionPressedLast = true;
+            aOptionPressedLast = true;
             /*
             if( e.getSource() == easy) {
               current_level = LVL_EASY;
@@ -383,6 +387,8 @@ public class UserInterface extends JPanel implements ActionListener
             showCorrect = false;
             showIncorrect = false;
           System.out.println("order B was pressed");
+          letterOptionPressedLast = true;
+          bOptionPressedLast = true;
         }
 
         else if( e.getSource() == orderC )
@@ -390,6 +396,8 @@ public class UserInterface extends JPanel implements ActionListener
             showCorrect = false;
             showIncorrect = false;
           System.out.println("order C was pressed");
+          letterOptionPressedLast = true;
+          cOptionPressedLast = true;
         }
 
         else if( e.getSource() == orderD )
@@ -432,11 +440,28 @@ public class UserInterface extends JPanel implements ActionListener
         {
           current_level = LVL_EASY;
           if (letterOptionPressedLast) {
-            pOrder = new PEMDASOrder(this.current_level, "a");
-            String[] answerAndPrompt = pOrder.promptGenerator();
-            String answer = answerAndPrompt[0];
-            String prompt = answerAndPrompt[1];
-            question = "Please find: " + prompt;
+            if(aOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "a");
+            } else if(bOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "b");
+            } else if(cOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "c");
+            } else {
+              System.out.println("Invalid option.");
+            }
+            if (pOrder != null) {
+              String[] answerAndPrompt = pOrder.promptGenerator();
+              String answer = answerAndPrompt[0];
+              String prompt = answerAndPrompt[1];
+              question = "Please find: " + prompt;
+              correctAnswer = Integer.parseInt(answer);
+            }
+
+            letterOptionPressedLast = false;
+            aOptionPressedLast = false;
+            bOptionPressedLast = false;
+            cOptionPressedLast = false;
+
           } else {
             if( current_op == OP_ADD ) {
               flashC = new MathFlashCard( current_level );
@@ -484,6 +509,30 @@ public class UserInterface extends JPanel implements ActionListener
         else if( e.getSource() == medium )
         {
           current_level = LVL_MEDIUM;
+          if (letterOptionPressedLast) {
+            if(aOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "a");
+            } else if(bOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "b");
+            } else if(cOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "c");
+            } else {
+              System.out.println("Invalid option.");
+            }
+            if (pOrder != null) {
+              String[] answerAndPrompt = pOrder.promptGenerator();
+              String answer = answerAndPrompt[0];
+              String prompt = answerAndPrompt[1];
+              question = "Please find: " + prompt;
+              correctAnswer = Integer.parseInt(answer);
+            }
+
+            letterOptionPressedLast = false;
+            aOptionPressedLast = false;
+            bOptionPressedLast = false;
+            cOptionPressedLast = false;
+
+          } else {
 		  if( current_op == OP_ADD ) {
             flashC = new MathFlashCard( current_level );
             // takes in the int array of the MathFlashC
@@ -525,9 +574,12 @@ public class UserInterface extends JPanel implements ActionListener
             System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
           }        }
 
+        }
+
         else if( e.getSource() == hard )
         {
           current_level = LVL_HARD;
+          
 		  if( current_op == OP_ADD ) {
             flashC = new MathFlashCard( current_level );
             // takes in the int array of the MathFlashC

@@ -7,6 +7,7 @@ package backend;
 
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +33,17 @@ public class UserInterface extends JPanel implements ActionListener
     private static int OP_MULTIPLY = 2;
     private static int OP_DIVIDE = 3;
     private int current_op = -1;
+
+    private static final int BTN_W = 31;
+    private static final int BTN_H = 29;
+    private static final int LVL_W = 82;
+    private static final int LVL_H = 30;
+
+    private static final int OPER_Y = 104;
+    private static final int PEM_Y1 = 198;
+    private static final int PEM_Y2 = 233;
+
+    private static final int DIFF_X = 595;
 
     // math flash cards buttons
 	private JButton add;
@@ -66,6 +78,7 @@ public class UserInterface extends JPanel implements ActionListener
 
     // background image
     BufferedImage background;
+    Image bgResized;
 
     MathFlashCard flashC;
     int processedAnswer = -1;
@@ -78,6 +91,7 @@ public class UserInterface extends JPanel implements ActionListener
 		try
 		{
 			background = ImageIO.read(new File("media/InterfaceArt.png"));
+      bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
 			/* if you guys want to access the image, you need it to be either in a folder
 			 * called images or you need to edit the code above
 			 */
@@ -91,7 +105,7 @@ public class UserInterface extends JPanel implements ActionListener
 
 		// math flash card buttons
 		add = new JButton("");
-		add.setBounds(9,179,54,50);
+		add.setBounds(5,OPER_Y,BTN_W,BTN_H);
 		add.addActionListener(this);
 		this.add(add);
 		add.setOpaque(false);
@@ -99,7 +113,7 @@ public class UserInterface extends JPanel implements ActionListener
 		add.setBorderPainted(false);
 
 		subtract = new JButton("");
-		subtract.setBounds(70,179,54,50);
+		subtract.setBounds(41,OPER_Y,BTN_W,BTN_H);
 		subtract.addActionListener(this);
 		this.add(subtract);
 		subtract.setOpaque(false);
@@ -107,7 +121,7 @@ public class UserInterface extends JPanel implements ActionListener
 		subtract.setBorderPainted(false);
 
 		multiply = new JButton("");
-		multiply.setBounds(132,179,54,50);
+		multiply.setBounds(77,OPER_Y,BTN_W,BTN_H);
 		multiply.addActionListener(this);
 		this.add(multiply);
 		multiply.setOpaque(false);
@@ -115,7 +129,7 @@ public class UserInterface extends JPanel implements ActionListener
 		multiply.setBorderPainted(false);
 
 		divide = new JButton("");
-		divide.setBounds(192,179,54,50);
+		divide.setBounds(112,OPER_Y,BTN_W,BTN_H);
 		divide.addActionListener(this);
 		this.add(divide);
 		divide.setOpaque(false);
@@ -124,7 +138,7 @@ public class UserInterface extends JPanel implements ActionListener
 
 		// order of operations buttons
 		orderA = new JButton("");
-		orderA.setBounds(9,340,54,52);
+		orderA.setBounds(5,PEM_Y1,BTN_W,BTN_H);
 		orderA.addActionListener(this);
 		this.add(orderA);
 		orderA.setOpaque(false);
@@ -132,7 +146,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderA.setBorderPainted(false);
 
 		orderB = new JButton("");
-		orderB.setBounds(70,340,54,52);
+		orderB.setBounds(41,PEM_Y1,BTN_W,BTN_H);
 		orderB.addActionListener(this);
 		this.add(orderB);
 		orderB.setOpaque(false);
@@ -140,7 +154,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderB.setBorderPainted(false);
 
 		orderC = new JButton("");
-		orderC.setBounds(132,340,54,52);
+		orderC.setBounds(77,PEM_Y1,BTN_W,BTN_H);
 		orderC.addActionListener(this);
 		this.add(orderC);
 		orderC.setOpaque(false);
@@ -148,7 +162,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderC.setBorderPainted(false);
 
 		orderD = new JButton("");
-		orderD.setBounds(192,340,54,52);
+		orderD.setBounds(112,PEM_Y1,BTN_W,BTN_H);
 		orderD.addActionListener(this);
 		this.add(orderD);
 		orderD.setOpaque(false);
@@ -156,7 +170,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderD.setBorderPainted(false);
 
 		orderE = new JButton("");
-		orderE.setBounds(9,400,54,52);
+		orderE.setBounds(5,PEM_Y2,BTN_W,BTN_H);
 		orderE.addActionListener(this);
 		this.add(orderE);
 		orderE.setOpaque(false);
@@ -164,7 +178,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderE.setBorderPainted(false);
 
 		orderF = new JButton("");
-		orderF.setBounds(70,400,54,52);
+		orderF.setBounds(41,PEM_Y2,BTN_W,BTN_H);
 		orderF.addActionListener(this);
 		this.add(orderF);
 		orderF.setOpaque(false);
@@ -172,7 +186,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderF.setBorderPainted(false);
 
 		orderG = new JButton("");
-		orderG.setBounds(132,400,54,52);
+		orderG.setBounds(77,PEM_Y2,BTN_W,BTN_H);
 		orderG.addActionListener(this);
 		this.add(orderG);
 		orderG.setOpaque(false);
@@ -180,7 +194,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderG.setBorderPainted(false);
 
 		orderG = new JButton("");
-		orderG.setBounds(192,20,94,52);
+		orderG.setBounds(112,12,55,BTN_H);
 		orderG.addActionListener(this);
 		this.add(orderG);
 		orderG.setOpaque(false);
@@ -188,7 +202,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderG.setBorderPainted(false);
 
 		easy = new JButton("");
-		easy.setBounds(1018,290,140,52);
+		easy.setBounds(594,169,LVL_W,LVL_H);
 		easy.addActionListener(this);
 		this.add(easy);
 		easy.setOpaque(false);
@@ -196,7 +210,7 @@ public class UserInterface extends JPanel implements ActionListener
 		easy.setBorderPainted(false);
 
 		medium = new JButton("");
-		medium.setBounds(1020,345,140,52);
+		medium.setBounds(DIFF_X,201,LVL_W,LVL_H);
 		medium.addActionListener(this);
 		this.add(medium);
 		medium.setOpaque(false);
@@ -204,7 +218,7 @@ public class UserInterface extends JPanel implements ActionListener
 		medium.setBorderPainted(false);
 
 		hard = new JButton("");
-		hard.setBounds(1020,410,140,52);
+		hard.setBounds(DIFF_X,239,LVL_W,LVL_H);
 		hard.addActionListener(this);
 		this.add(hard);
 		hard.setOpaque(false);
@@ -212,7 +226,7 @@ public class UserInterface extends JPanel implements ActionListener
 		hard.setBorderPainted(false);
 
 		submit = new JButton("");
-		submit.setBounds(1020,750,140,52);
+		submit.setBounds(DIFF_X,438,LVL_W,LVL_H);
 		submit.addActionListener(this);
 		this.add(submit);
 		submit.setOpaque(false);
@@ -220,7 +234,7 @@ public class UserInterface extends JPanel implements ActionListener
 		submit.setBorderPainted(false);
 
 		pass = new JButton("");
-		pass.setBounds(1020,800,140,82);
+		pass.setBounds(DIFF_X,467,LVL_W,48);
 		pass.addActionListener(this);
 		this.add(pass);
 		pass.setOpaque(false);
@@ -229,15 +243,15 @@ public class UserInterface extends JPanel implements ActionListener
 
 		// text field entries
         userID = new JTextField(50);
-        userID.setBounds(11,10,240,49);
+        userID.setBounds(6,4,140,29);
         this.add(userID);
 
         workspace = new JTextField(50);
-        workspace.setBounds(290,180,692,548);
+        workspace.setBounds(169,105,404,320);
         this.add(workspace);
 
         finalAnswer = new JTextField(50);
-        finalAnswer.setBounds(1007,620,165,120);
+        finalAnswer.setBounds(587,362,96,70);
         this.add(finalAnswer);
 
    		/*searchResultsPane = new JTextPane();
@@ -252,7 +266,7 @@ public class UserInterface extends JPanel implements ActionListener
     public Dimension getPreferredSize()
     {
         //Sets the size of the panel
-        return new Dimension(1200,900);
+        return new Dimension(700,525);
     }
 
     public void paintComponent(Graphics g)
@@ -260,11 +274,11 @@ public class UserInterface extends JPanel implements ActionListener
         super.paintComponent(g);
 
         g.setColor( Color.gray );
-       	g.fillRect( 0, 0, 1000, 600 );
-        g.drawImage( background, 0, 0, null );
+       	g.fillRect( 0, 0, 583, 350 );
+        g.drawImage( bgResized, 0, 0, null );
         g.setColor( Color.black );
         // this is the question prompt
-        g.drawString( question, 350, 60 );
+        g.drawString( question, 204, 35 );
     }
 
     public void actionPerformed(ActionEvent e)
@@ -426,7 +440,7 @@ public class UserInterface extends JPanel implements ActionListener
 
         else if( e.getSource() == hard )
         {
-          current_level = LVL_MEDIUM;
+          current_level = LVL_HARD;
 		  if( current_op == OP_ADD ) {
             flashC = new MathFlashCard( current_level );
             // takes in the int array of the MathFlashC

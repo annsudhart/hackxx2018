@@ -1,3 +1,8 @@
+/*
+ * Name: Abirami Sambamoorthy
+ * Date: 7 April 2018
+ */
+
 import java.util.*;
 
 public class MathFlashCard {

@@ -1,0 +1,30 @@
+!SESSION 2018-04-07 20:55:54.976 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180301-0715
+java.version=1.8.0_162
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/coraxyc/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/coraxyc/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-07 20:56:34.258
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.egit.core 4 0 2018-04-07 20:58:11.083
+!MESSAGE An exception occurred during push on URI https://github.com/annsudhart/hackxx2018.git: https://github.com/annsudhart/hackxx2018.git: git-receive-pack not permitted on 'https://github.com/annsudhart/hackxx2018.git/'
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: https://github.com/annsudhart/hackxx2018.git: git-receive-pack not permitted on 'https://github.com/annsudhart/hackxx2018.git/'
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:215)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:84)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:57)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/annsudhart/hackxx2018.git: git-receive-pack not permitted on 'https://github.com/annsudhart/hackxx2018.git/'
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:537)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:435)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1310)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:169)
+	... 4 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2018-04-07 20:58:11.109
+!MESSAGE Can't connect to any repository: https://github.com/annsudhart/hackxx2018.git (https://github.com/annsudhart/hackxx2018.git: git-receive-pack not permitted on 'https://github.com/annsudhart/hackxx2018.git/')

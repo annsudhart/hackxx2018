@@ -5,7 +5,8 @@ public class Encouragement {
 	private final String MARYAM = "Maryam Mirzakhani 1977-2017. She won " +
 	"the prestigious Fields medal in Mathematics for her research in " +
 	"geometry, and was the first woman to win such a medal.";
-	private final String AGNESI;
+	private final String AGNESI = "Maria Agnesi 1718-1799.  She created" +
+	" the first programming;
 	private String[] encouragement="";
 	public Encouragement() {
 

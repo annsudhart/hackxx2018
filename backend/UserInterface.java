@@ -73,8 +73,8 @@ public class UserInterface extends JPanel implements ActionListener
     private JTextField finalAnswer;
     // text
     private JTextPane questionPrompt;
-    private JTextPane help;
     private JTextPane encouragement;
+    private JButton encourageMe;
 
     // background image
     BufferedImage background;
@@ -97,6 +97,7 @@ public class UserInterface extends JPanel implements ActionListener
     String question = "The math question will appear here...";
     String workspacePrompt = "This is your workspace, start typing...";
     String IDPrompt = "Type your ID here...";
+    Encouragement goodWords = new Encouragement();
 
   private boolean submitPressed = false;
   private boolean letterOptionPressedLast = false;
@@ -280,6 +281,15 @@ public class UserInterface extends JPanel implements ActionListener
 		pass.setContentAreaFilled(false);
 		pass.setBorderPainted(false);
 
+		encourageMe = new JButton("Encourage Me!");
+		encourageMe.setBounds(155, 455, 377, 90);
+		encourageMe.addActionListener(this);
+		this.add(encourageMe);
+		encourageMe.setOpaque(false);
+		encourageMe.setContentAreaFilled(false);
+		encourageMe.setBorderPainted(false);
+
+
 	// text field entries
         userID = new JTextField(50);
         userID.setBounds(6,4,140,29);
@@ -297,8 +307,11 @@ public class UserInterface extends JPanel implements ActionListener
 
         finalAnswer = new JTextField(50);
         finalAnswer.setBounds(587,362,96,70);
-        this.add(finalAnswer);
+        this.add(finalAnswer);	
 
+	encouragement = new JTextPane();
+	encouragement.setBounds(172, 427, 377, 47);
+	this.add(encouragement);
    	/*searchResultsPane = new JTextPane();
         searchResultsPane.setBounds(530,40,235,180);
         this.add(searchResultsPane);*/
@@ -432,8 +445,15 @@ public class UserInterface extends JPanel implements ActionListener
         {
             showCorrect = false;
             showIncorrect = false;
-          System.out.println("order H was pressed");
-        }
+            System.out.println("order H was pressed");
+	}
+
+    	else if( e.getSource() == encourageMe )
+	{
+	    String goodWord = goodWords.generateRandomEncouragement();
+	    System.out.println(goodWord);
+	    encouragement.setText(goodWord);
+	}
 
         // this is for difficulty level
         if( e.getSource() == easy )

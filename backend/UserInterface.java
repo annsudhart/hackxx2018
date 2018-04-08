@@ -8,7 +8,6 @@ package backend;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Image;
-import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -27,13 +26,13 @@ public class UserInterface extends JPanel implements ActionListener
     private static int LVL_EASY = 0;
     private static int LVL_MEDIUM = 1;
     private static int LVL_HARD = 2;
-    private int current_level = -1; // the current difficulty lvl
+    private int current_level = -1;
 
     private static int OP_ADD = 0;
     private static int OP_SUBTRACT = 1;
     private static int OP_MULTIPLY = 2;
     private static int OP_DIVIDE = 3;
-    private int current_op = -1; // current math operation selected
+    private int current_op = -1;
 
     private static final int BTN_W = 31;
     private static final int BTN_H = 29;
@@ -47,59 +46,54 @@ public class UserInterface extends JPanel implements ActionListener
     private static final int DIFF_X = 595;
 
     // math flash cards buttons
-    private JButton add;
-    private JButton subtract;
-    private JButton multiply;
-    private JButton divide;
-    // order operations buttons
-    private JButton orderA;
-    private JButton orderB;
-    private JButton orderC;
-    private JButton orderD;
-    private JButton orderE;
-    private JButton orderF;
-    private JButton orderG;
-    private JButton orderH;
-    // difficulty level
-    private JButton easy;
-    private JButton medium;
-    private JButton hard;
-    // final button options
-    private JButton submit;
-    private JButton pass;
-    // text user panes
-    private JTextField userID;
-    private JTextField workspace;
-    private JTextField finalAnswer;
-    // text
-    private JTextPane questionPrompt;
+	private JButton add;
+	private JButton subtract;
+	private JButton multiply;
+	private JButton divide;
+	// order operations buttons
+	private JButton orderA;
+	private JButton orderB;
+	private JButton orderC;
+	private JButton orderD;
+	private JButton orderE;
+	private JButton orderF;
+	private JButton orderG;
+	private JButton orderH;
+	// difficulty level
+	private JButton easy;
+	private JButton medium;
+	private JButton hard;
+	// final button options
+	private JButton submit;
+	private JButton pass;
+	// text user panes
+	private JTextField userID;
+	private JTextField workspace;
+	private JTextField finalAnswer;
+	// text
+	private JTextPane questionPrompt;
     private JTextPane help;
     private JTextPane encouragement;
+
 
     // background image
     BufferedImage background;
     Image bgResized;
-    
-    // font and size
-    Font myFont = new Font( "Helvetica", Font.BOLD, 15 );
 
-    // Math Flash Card object
     MathFlashCard flashC;
+    PEMDASOrder pOrder;
     int processedAnswer = -1;
     int correctAnswer = -1;
-
-    // prompting
-    String question = "The math question will appear here...";
-    String workspacePrompt = "This is your workspace, start typing...";
-    String IDPrompt = "Type your ID here...";
+    String question = "";
 
   private boolean submitPressed = false;
 
 	public UserInterface()
 	{
-	    try {
+		try
+		{
 			background = ImageIO.read(new File("media/InterfaceArt.png"));
-    			bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
+      bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
 			/* if you guys want to access the image, you need it to be either in a folder
 			 * called images or you need to edit the code above
 			 */
@@ -201,13 +195,13 @@ public class UserInterface extends JPanel implements ActionListener
 		orderG.setContentAreaFilled(false);
 		orderG.setBorderPainted(false);
 
-		orderH = new JButton("");
-		orderH.setBounds(112,PEM_Y2,BTN_W,BTN_H);
-		orderH.addActionListener(this);
-		this.add(orderH);
-		orderH.setOpaque(false);
-		orderH.setContentAreaFilled(false);
-		orderH.setBorderPainted(false);
+		orderG = new JButton("");
+		orderG.setBounds(112,12,55,BTN_H);
+		orderG.addActionListener(this);
+		this.add(orderG);
+		orderG.setOpaque(false);
+		orderG.setContentAreaFilled(false);
+		orderG.setBorderPainted(false);
 
 		easy = new JButton("");
 		easy.setBounds(594,169,LVL_W,LVL_H);
@@ -249,7 +243,7 @@ public class UserInterface extends JPanel implements ActionListener
 		pass.setContentAreaFilled(false);
 		pass.setBorderPainted(false);
 
-	// text field entries
+		// text field entries
         userID = new JTextField(50);
         userID.setBounds(6,4,140,29);
         this.add(userID);
@@ -262,10 +256,15 @@ public class UserInterface extends JPanel implements ActionListener
         finalAnswer.setBounds(587,362,96,70);
         this.add(finalAnswer);
 
-   	/*searchResultsPane = new JTextPane();
+	encouragement = new JTextField(50);
+	encouragement.setBounds(155,400,370,40);
+	this.add(encouragement);
+
+   		/*searchResultsPane = new JTextPane();
         searchResultsPane.setBounds(530,40,235,180);
         this.add(searchResultsPane);*/
        // allSongsPane.setText( getSongList() );
+
 
         this.setFocusable(true);
     }
@@ -284,7 +283,6 @@ public class UserInterface extends JPanel implements ActionListener
        	g.fillRect( 0, 0, 583, 350 );
         g.drawImage( bgResized, 0, 0, null );
         g.setColor( Color.black );
-	g.setFont( myFont );
         // this is the question prompt
         g.drawString( question, 204, 35 );
     }
@@ -317,61 +315,55 @@ public class UserInterface extends JPanel implements ActionListener
 		}
 
 		// this is for order operations
-    // this is for order operations
-    if( (e.getSource() == orderA ||
-        e.getSource() == orderB ||
-        e.getSource() == orderC ||
-        e.getSource() == orderD ||
-        e.getSource() == orderE ||
-        e.getSource() == orderF ||
-        e.getSource() == orderG ||
-        e.getSource() == orderH ) &&
-        this.current_level == -1) {
-          System.out.println("Please choose a difficulty level first.");
-    } else { // Make sure difficulty level is already
-      if( e.getSource() == orderA )
-      {
-              PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
-              System.out.println("order A was pressed");
-      }
+		if( e.getSource() == orderA )
+    {
+            System.out.println("order A was pressed");
+            pOrder = new PEMDASOrder(this.current_level, "a");
+            String[] answerAndPrompt = pOrder.promptGenerator();
+            String answer = answerAndPrompt[0];
+            String prompt = answerAndPrompt[1];
 
-  		else if( e.getSource() == orderB )
-          {
-            System.out.println("order B was pressed");
-          }
+            question = "Please find: " + prompt;
 
-          else if( e.getSource() == orderC )
-          {
-            System.out.println("order C was pressed");
-          }
+		}
 
-          else if( e.getSource() == orderD )
-          {
-            System.out.println("order D was pressed");
-          }
+		else if( e.getSource() == orderB )
+        {
+          System.out.println("order B was pressed");
+        }
 
-          else if( e.getSource() == orderE )
-          {
-            System.out.println("order E was pressed");
-          }
+        else if( e.getSource() == orderC )
+        {
+          System.out.println("order C was pressed");
+        }
 
-          else if( e.getSource() == orderF )
-          {
-            System.out.println("order F was pressed");
-          }
+        else if( e.getSource() == orderD )
+        {
+          System.out.println("order D was pressed");
+        }
 
-          else if( e.getSource() == orderG )
-          {
-            System.out.println("order G was pressed");
-          }
+        else if( e.getSource() == orderE )
+        {
+          System.out.println("order E was pressed");
+        }
 
-          else if( e.getSource() == orderH )
-          {
-            System.out.println("order H was pressed");
-          }
-      }
+        else if( e.getSource() == orderF )
+        {
+          System.out.println("order F was pressed");
+        }
+
+        else if( e.getSource() == orderG )
+        {
+          System.out.println("order G was pressed");
+        }
+
         // this is for difficulty level
-        if( e.getSource() == easy )
+        if( e.getSource() == orderH )
+        {
+          System.out.println("order H was pressed");
+        }
+
+        else if( e.getSource() == easy )
         {
           current_level = LVL_EASY;
           if( current_op == OP_ADD ) {

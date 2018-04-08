@@ -60,7 +60,7 @@ public class PEMDASOrder {
     int base = 0;
     switch (this.range) {
       case 10:
-        base = 0;
+        base = 1;
       case 100:
         base = 10;
       case 1000:
@@ -130,7 +130,7 @@ public class PEMDASOrder {
           default:
             break;
         }
-        equationWithEqualSign += ( " = " );
+        // equationWithEqualSign += ( " = " );
         break;
       case "b":
         System.out.println("PEMDAS Option 'b' chosen.");

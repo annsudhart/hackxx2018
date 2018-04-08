@@ -1,4 +1,6 @@
+import java.util.Random;
 public class Encouragement {
+	
 	private final String HYPATIA = "Hypatia c.370 - 415.  She worked " +
 	"to teach and preserve Greek mathematics in her time. She was also " +
 	"known for her strength in philosophy and reasoning.";
@@ -15,13 +17,27 @@ public class Encouragement {
 	"African American woman to get a Ph. D. in Mathematics, she brought " +
 	"mathematics education to children in Washington D.C.\'s public schools.";
 	private String[] encouragement={HYPATIA, MARYAM, AGNESI, LOVELACE, LOFTON};
+
 	public Encouragement() {
 
 	}
 
 	// generate a specific String for encouragement
+	// pick a string from 0 to 4 inclusive
 	public String generateEncouragement(int x) {
+		if (x > 0 || x < 5) {
+			System.err.println("encouragement out of bounds");
+			return "You got this!";
+		} else {
+			return encouragement[x];
+		}
 	}
 
 	// generate a random String for encouragement
+	public String generateRandomEncouragement() {
+		Random r = new Random();
+		int index = r.nextInt(5);
+		return encouragement[index];
+	}
+
 }

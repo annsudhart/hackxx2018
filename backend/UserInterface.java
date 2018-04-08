@@ -314,10 +314,23 @@ public class UserInterface extends JPanel implements ActionListener
 		}
 
 		// this is for order operations
-		if( e.getSource() == orderA )
+    // this is for order operations
+    if( e.getSource() == orderA ||
+        e.getSource() == orderA ||
+        e.getSource() == orderA ||
+        e.getSource() == orderA ||
+        e.getSource() == orderA ||
+        e.getSource() == orderA ||)
+    if( e.getSource() == orderA )
         {
+            if (this.current_level == null) {
+
+            } else {
+
+            }
+            PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
             System.out.println("order A was pressed");
-		}
+    }
 
 		else if( e.getSource() == orderB )
         {

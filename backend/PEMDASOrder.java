@@ -100,10 +100,16 @@ public class PEMDASOrder {
             answer += equationNums[0] + equationNums[1] - equationNums[2];
             break;
           case 4:
+            while (equationNums[2] % equationNums[3] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] + equationNums[1] - equationNums[2]
                       / equationNums[3];
             break;
           case 5:
+            while (equationNums[2] % equationNums[3] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] + equationNums[1] - equationNums[2]
                       / equationNums[3] * equationNums[4];
             break;
@@ -123,13 +129,22 @@ public class PEMDASOrder {
 
         switch(equationNums.length) {
           case 3:
+            while (equationNums[0] % equationNums[1] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] / equationNums[1] - equationNums[2];
             break;
           case 4:
+            while (equationNums[0] % equationNums[1] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] / equationNums[1] - equationNums[2]
                       + equationNums[3];
             break;
           case 5:
+            while (equationNums[0] % equationNums[1] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] / equationNums[1] - equationNums[2]
                       + equationNums[3] * equationNums[4];
             break;
@@ -158,6 +173,9 @@ public class PEMDASOrder {
                       + equationNums[3];
             break;
           case 5:
+            while (equationNums[3] % equationNums[4] != 0) {
+              equationNums = numberGenerator(amountNumsInEquation);
+            }
             answer += equationNums[0] - equationNums[1] * equationNums[2]
                       + equationNums[3] / equationNums[4];
             break;

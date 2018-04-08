@@ -26,13 +26,13 @@ public class UserInterface extends JPanel implements ActionListener
     private static int LVL_EASY = 0;
     private static int LVL_MEDIUM = 1;
     private static int LVL_HARD = 2;
-    private int current_level = -1;
+    private int current_level = -1; // the current difficulty lvl
 
     private static int OP_ADD = 0;
     private static int OP_SUBTRACT = 1;
     private static int OP_MULTIPLY = 2;
     private static int OP_DIVIDE = 3;
-    private int current_op = -1;
+    private int current_op = -1; // current math operation selected
 
     private static final int BTN_W = 31;
     private static final int BTN_H = 29;
@@ -46,44 +46,48 @@ public class UserInterface extends JPanel implements ActionListener
     private static final int DIFF_X = 595;
 
     // math flash cards buttons
-	private JButton add;
-	private JButton subtract;
-	private JButton multiply;
-	private JButton divide;
-	// order operations buttons
-	private JButton orderA;
-	private JButton orderB;
-	private JButton orderC;
-	private JButton orderD;
-	private JButton orderE;
-	private JButton orderF;
-	private JButton orderG;
-	private JButton orderH;
-	// difficulty level
-	private JButton easy;
-	private JButton medium;
-	private JButton hard;
-	// final button options
-	private JButton submit;
-	private JButton pass;
-	// text user panes
-	private JTextField userID;
-	private JTextField workspace;
-	private JTextField finalAnswer;
-	// text
-	private JTextPane questionPrompt;
+    private JButton add;
+    private JButton subtract;
+    private JButton multiply;
+    private JButton divide;
+    // order operations buttons
+    private JButton orderA;
+    private JButton orderB;
+    private JButton orderC;
+    private JButton orderD;
+    private JButton orderE;
+    private JButton orderF;
+    private JButton orderG;
+    private JButton orderH;
+    // difficulty level
+    private JButton easy;
+    private JButton medium;
+    private JButton hard;
+    // final button options
+    private JButton submit;
+    private JButton pass;
+    // text user panes
+    private JTextField userID;
+    private JTextField workspace;
+    private JTextField finalAnswer;
+    // text
+    private JTextPane questionPrompt;
     private JTextPane help;
     private JTextPane encouragement;
-
 
     // background image
     BufferedImage background;
     Image bgResized;
 
+    // Math Flash Card object
     MathFlashCard flashC;
     int processedAnswer = -1;
     int correctAnswer = -1;
-    String question = "";
+    
+    // prompting
+    String question = "The math question will appear here...";
+    String workspacePrompt = "This is your workspace, start typing...":
+    String IDPrompt = "Type your ID here...";
 
   private boolean submitPressed = false;
 
@@ -92,7 +96,7 @@ public class UserInterface extends JPanel implements ActionListener
 		try
 		{
 			background = ImageIO.read(new File("media/InterfaceArt.png"));
-      bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
+    			bgResized = background.getScaledInstance(700, 525, Image.SCALE_DEFAULT);
 			/* if you guys want to access the image, you need it to be either in a folder
 			 * called images or you need to edit the code above
 			 */
@@ -194,13 +198,13 @@ public class UserInterface extends JPanel implements ActionListener
 		orderG.setContentAreaFilled(false);
 		orderG.setBorderPainted(false);
 
-		orderG = new JButton("");
-		orderG.setBounds(112,12,55,BTN_H);
-		orderG.addActionListener(this);
-		this.add(orderG);
-		orderG.setOpaque(false);
-		orderG.setContentAreaFilled(false);
-		orderG.setBorderPainted(false);
+		orderH = new JButton("");
+		orderH.setBounds(112,PEM_Y2,BTN_W,BTN_H);
+		orderH.addActionListener(this);
+		this.add(orderH);
+		orderH.setOpaque(false);
+		orderH.setContentAreaFilled(false);
+		orderH.setBorderPainted(false);
 
 		easy = new JButton("");
 		easy.setBounds(594,169,LVL_W,LVL_H);
@@ -255,8 +259,8 @@ public class UserInterface extends JPanel implements ActionListener
         finalAnswer.setBounds(587,362,96,70);
         this.add(finalAnswer);
 
-	encouragement = new JTextField(50);
-	encouragement.setBounds(155,400,370,40);
+	encouragement = new JTextPane();
+	encouragement.setBounds(165,435,370,40);
 	this.add(encouragement);
 
    		/*searchResultsPane = new JTextPane();

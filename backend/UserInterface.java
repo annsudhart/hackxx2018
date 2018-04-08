@@ -283,7 +283,7 @@ public class UserInterface extends JPanel implements ActionListener
 	// text field entries
         userID = new JTextField(50);
         userID.setBounds(6,4,140,29);
-	userID.setText( IDPrompt );
+	      userID.setText( IDPrompt );
         userID.setFont( myFont );
         userID.addActionListener(this);
         this.add(userID);
@@ -324,7 +324,7 @@ public class UserInterface extends JPanel implements ActionListener
 	// correct/incorrect images (initially invisible)
         if( showCorrect )
             g.drawImage( correct, 1040, 500, null );
-	if( showIncorrect )
+	      if( showIncorrect )
             g.drawImage( incorrect, 1040, 500, null );
 
 	// font
@@ -579,7 +579,7 @@ public class UserInterface extends JPanel implements ActionListener
         else if( e.getSource() == hard )
         {
           current_level = LVL_HARD;
-          
+
 		  if( current_op == OP_ADD ) {
             flashC = new MathFlashCard( current_level );
             // takes in the int array of the MathFlashC

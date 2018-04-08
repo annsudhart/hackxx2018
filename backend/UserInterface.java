@@ -579,7 +579,30 @@ public class UserInterface extends JPanel implements ActionListener
         else if( e.getSource() == hard )
         {
           current_level = LVL_HARD;
-          
+          if (letterOptionPressedLast) {
+            if(aOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "a");
+            } else if(bOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "b");
+            } else if(cOptionPressedLast) {
+              pOrder = new PEMDASOrder(this.current_level, "c");
+            } else {
+              System.out.println("Invalid option.");
+            }
+            if (pOrder != null) {
+              String[] answerAndPrompt = pOrder.promptGenerator();
+              String answer = answerAndPrompt[0];
+              String prompt = answerAndPrompt[1];
+              question = "Please find: " + prompt;
+              correctAnswer = Integer.parseInt(answer);
+            }
+
+            letterOptionPressedLast = false;
+            aOptionPressedLast = false;
+            bOptionPressedLast = false;
+            cOptionPressedLast = false;
+
+          } else {
 		  if( current_op == OP_ADD ) {
             flashC = new MathFlashCard( current_level );
             // takes in the int array of the MathFlashC
@@ -621,7 +644,7 @@ public class UserInterface extends JPanel implements ActionListener
             System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
           }
         }
-
+      }
         else if( e.getSource() == submit )
         {
              this.submitPressed = true;

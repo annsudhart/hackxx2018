@@ -11,18 +11,12 @@ html, body {
   background-color: #fffbff;
   margin-left: auto;
   margin-right: auto;
+  padding-right:5%;
+  padding-left:5%;
 }
 
-#img {
-  height: 300px;
-  width: 450px;
-  background-color: pink;
-}
-
-h1 {
-  font-size: 4em;
-  font-family: 'Comfortaa', cursive;
-  color: #363536;
+img {
+  width: 100%;
 }
 
 h3 {

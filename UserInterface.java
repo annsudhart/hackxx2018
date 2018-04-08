@@ -36,26 +36,28 @@ public class UserInterface extends JPanel implements ActionListener
 	// final button options 
 	private JButton submit;
 	private JButton pass;
-
-	
+	// text user panes
 	private JTextField userID;
 	private JTextField workspace;
 	private JTextField finalAnswer;
-	
+	// text
 	private JTextPane questionPrompt;
     private JTextPane help;
     private JTextPane encouragement;
     
     // background image
     BufferedImage background;
+    
 
 	
 	public UserInterface()
-	{
-		
+	{		
 		try
 		{
 			background = ImageIO.read(new File("images/interfaceArt.png"));
+			/* if you guys want to access the image, you need it to be either in a folder
+			 * called images or you need to edit the code above
+			 */
 		}
 		catch( IOException e ){
 			System.out.println("Could not find file");
@@ -65,7 +67,7 @@ public class UserInterface extends JPanel implements ActionListener
 		this.setLayout(null);
 		
 		// math flash card buttons 
-		add = new JButton(""); //"shuffle"
+		add = new JButton(""); 
 		add.setBounds(9,179,54,50);
 		add.addActionListener(this);
 		this.add(add);
@@ -73,7 +75,7 @@ public class UserInterface extends JPanel implements ActionListener
 		add.setContentAreaFilled(false);
 		add.setBorderPainted(false);
 	
-		subtract = new JButton(""); //"Sort By Name"
+		subtract = new JButton(""); 
 		subtract.setBounds(70,179,54,50);
 		subtract.addActionListener(this);
 		this.add(subtract);
@@ -81,7 +83,7 @@ public class UserInterface extends JPanel implements ActionListener
 		subtract.setContentAreaFilled(false);
 		subtract.setBorderPainted(false);
 		
-		multiply = new JButton(""); //"Sort By Name"
+		multiply = new JButton(""); 
 		multiply.setBounds(132,179,54,50);
 		multiply.addActionListener(this);
 		this.add(multiply);
@@ -89,7 +91,7 @@ public class UserInterface extends JPanel implements ActionListener
 		multiply.setContentAreaFilled(false);
 		multiply.setBorderPainted(false);
 		
-		divide = new JButton(""); //"Sort By Name"
+		divide = new JButton(""); 
 		divide.setBounds(192,179,54,50);
 		divide.addActionListener(this);
 		this.add(divide);
@@ -98,7 +100,7 @@ public class UserInterface extends JPanel implements ActionListener
 		divide.setBorderPainted(false);
 		
 		// order of operations buttons 
-		orderA = new JButton(""); //"Sort By Name"
+		orderA = new JButton(""); 
 		orderA.setBounds(9,340,54,52);
 		orderA.addActionListener(this);
 		this.add(orderA);
@@ -106,7 +108,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderA.setContentAreaFilled(false);
 		orderA.setBorderPainted(false);
 		
-		orderB = new JButton(""); //"Sort By Name"
+		orderB = new JButton(""); 
 		orderB.setBounds(70,340,54,52);
 		orderB.addActionListener(this);
 		this.add(orderB);
@@ -114,7 +116,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderB.setContentAreaFilled(false);
 		orderB.setBorderPainted(false);
 		
-		orderC = new JButton(""); //"Sort By Name"
+		orderC = new JButton("");
 		orderC.setBounds(132,340,54,52);
 		orderC.addActionListener(this);
 		this.add(orderC);
@@ -122,7 +124,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderC.setContentAreaFilled(false);
 		orderC.setBorderPainted(false);
 		
-		orderD = new JButton(""); //"Sort By Name"
+		orderD = new JButton(""); 
 		orderD.setBounds(192,340,54,52);
 		orderD.addActionListener(this);
 		this.add(orderD);
@@ -130,7 +132,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderD.setContentAreaFilled(false);
 		orderD.setBorderPainted(false);
 		
-		orderE = new JButton(""); //"Sort By Name"
+		orderE = new JButton("");
 		orderE.setBounds(9,400,54,52);
 		orderE.addActionListener(this);
 		this.add(orderE);
@@ -138,7 +140,7 @@ public class UserInterface extends JPanel implements ActionListener
 		orderE.setContentAreaFilled(false);
 		orderE.setBorderPainted(false);
 		
-		orderF = new JButton(""); //"Sort By Name"
+		orderF = new JButton(""); 
 		orderF.setBounds(70,400,54,52);
 		orderF.addActionListener(this);
 		this.add(orderF);
@@ -212,7 +214,7 @@ public class UserInterface extends JPanel implements ActionListener
         this.add(workspace);
         
         finalAnswer = new JTextField(50);
-        finalAnswer.setBounds(1005,630,200,100);
+        finalAnswer.setBounds(1007,620,165,120);
         this.add(finalAnswer);
  
    		/*searchResultsPane = new JTextPane();
@@ -305,7 +307,11 @@ public class UserInterface extends JPanel implements ActionListener
         }
         else if( e.getSource() == submit )
         {
-          System.out.println("submit was pressed");
+          //user submits a final answer and we must parse it
+		  String answer = finalAnswer.getText();
+		  int finalAnswer = Integer.parseInt( answer );
+		  //if final answer is correct, display 
+          System.out.println("submit was pressed, answer: " + answer);
         }
         else if( e.getSource() == pass )
         {

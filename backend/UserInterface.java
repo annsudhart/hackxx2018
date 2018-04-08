@@ -81,7 +81,7 @@ public class UserInterface extends JPanel implements ActionListener
     Image bgResized;
 
     // font and size
-    Font myFont = new Font( "Helvetica", Font.BOLD, 15 );
+    Font myFont = new Font( "Helvetica", Font.BOLD, 13 );
 
     // Math Flash Card object
     MathFlashCard flashC;
@@ -293,8 +293,6 @@ public class UserInterface extends JPanel implements ActionListener
 	g.setFont( myFont );
         // this is the prompts
         g.drawString( question, 204, 35 );
-        g.drawString( workspacePrompt, 310, 200 ); //ABIRAMI TODO ADJUST NUM
-        g.drawString( IDPrompt, 25, 20 );   //ABIRAMI TODO ADJUST NUM
     }
 
     public void actionPerformed(ActionEvent e)

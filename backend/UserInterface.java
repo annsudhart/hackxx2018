@@ -579,9 +579,7 @@ public class UserInterface extends JPanel implements ActionListener
         else if( e.getSource() == hard )
         {
           current_level = LVL_HARD;
-<<<<<<< HEAD
 
-=======
           if (letterOptionPressedLast) {
             if(aOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");
@@ -606,7 +604,7 @@ public class UserInterface extends JPanel implements ActionListener
             cOptionPressedLast = false;
 
           } else {
->>>>>>> 174fdac648c2ff07c44e93bae741bc84fa424289
+
 		  if( current_op == OP_ADD ) {
             flashC = new MathFlashCard( current_level );
             // takes in the int array of the MathFlashC

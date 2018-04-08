@@ -95,21 +95,23 @@ public class PEMDASOrder {
   public String[] promptGenerator() {
     String[] answerAndPrompt = new String[2];
     String[] operatorList = new String[4];
+    // Minimum amount of numbers in equation is 3
     int amountNumsInEquation = ran.nextInt(2) + 3;
-    int[] equationNums = numberGenerator(amountNumsInEquation); // Generate all numbers in equation
+    // Generate all numbers in equation
+    int[] equationNums = numberGenerator(amountNumsInEquation);
     int answer = -1;
     String answer = "";
-    // int[] equationNumsWithAnswer = new int[equationNums.length + 1]; // Added 1 space for answer space
+    // int[] equationNumsWithAnswer = new int[equationNums.length + 1]; 
     switch (buttonChoice) {
       case "a":
         // (x * y) + z
         operatorList = {" + "," - ", " / ", " * "};
         System.out.println("PEMDAS Option 'a' chosen.");
         // answer = calculateAnswer(equationNums);
-        equationWithAnswer = equationNums[0];
+        equationWithEqualSign = equationNums[0];
         for (int i = 1; i < equationNums.length - 1; i += 1) {
-          equationWithAnswer += operatorList[i - 1];
-          equationWithAnswer += equationNums[i];
+          equationWithEqualSign += operatorList[i - 1];
+          equationWithEqualSign += equationNums[i];
         }
 
         switch(equationNums.length) {
@@ -127,9 +129,7 @@ public class PEMDASOrder {
           default:
             break;
         }
-
-        equationWithAnswer += ( " = " + answer );
-
+        equationWithEqualSign += ( " = " );
         break;
       case "b";
         System.out.println("PEMDAS Option 'b' chosen.");
@@ -157,7 +157,7 @@ public class PEMDASOrder {
         System.out.println("button choice does not exist");
     }
     answerAndPrompt[0] = answer;
-    answerAndPrompt[1] = equationWithAnswer;
+    answerAndPrompt[1] = equationWithEqualSign;
     return problemToSolve;
   }
 }

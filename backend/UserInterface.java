@@ -83,7 +83,7 @@ public class UserInterface extends JPanel implements ActionListener
     MathFlashCard flashC;
     int processedAnswer = -1;
     int correctAnswer = -1;
-    String question = "";
+    String question = "The math question will appear here...";
 
   private boolean submitPressed = false;
 

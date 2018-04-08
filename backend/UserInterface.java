@@ -323,10 +323,10 @@ public class UserInterface extends JPanel implements ActionListener
 
 	// correct/incorrect images (initially invisible)
         if( showCorrect ) {
-            g.drawImage( correct, 1040, 500, null );
+            g.drawImage( correct, 607, 292, null );
 	}
 	if( showIncorrect ) {
-            g.drawImage( incorrect, 1040, 500, null );
+            g.drawImage( incorrect, 607, 292, null );
 	}
 
 	// font

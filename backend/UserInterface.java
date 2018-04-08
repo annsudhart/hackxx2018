@@ -83,7 +83,7 @@ public class UserInterface extends JPanel implements ActionListener
     MathFlashCard flashC;
     int processedAnswer = -1;
     int correctAnswer = -1;
-    
+
     // prompting
     String question = "The math question will appear here...";
     String workspacePrompt = "This is your workspace, start typing...":
@@ -319,57 +319,63 @@ public class UserInterface extends JPanel implements ActionListener
 
 		// this is for order operations
     // this is for order operations
-    if( e.getSource() == orderA ||
-        e.getSource() == orderA ||
-        e.getSource() == orderA ||
-        e.getSource() == orderA ||
-        e.getSource() == orderA ||
-        e.getSource() == orderA ||)
-    if( e.getSource() == orderA )
-        {
-            if (this.current_level == null) {
+    if( (e.getSource() == orderA ||
+        e.getSource() == orderB ||
+        e.getSource() == orderC ||
+        e.getSource() == orderD ||
+        e.getSource() == orderE ||
+        e.getSource() == orderF ||
+        e.getSource() == orderG ||
+        e.getSource() == orderH ) &&
+        this.current_level == null) {
+          System.out.println("Please choose a difficulty level first.");
+    } else { // Make sure difficulty level is already
+      if( e.getSource() == orderA )
+          {
+              if (this.current_level == null) {
 
-            } else {
+              } else {
 
-            }
-            PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
-            System.out.println("order A was pressed");
-    }
+              }
+              PEMDASOrder pOrder = new PEMDASOrder(this.current_level, "a");
+              System.out.println("order A was pressed");
+      }
 
-		else if( e.getSource() == orderB )
-        {
-          System.out.println("order B was pressed");
-        }
+  		else if( e.getSource() == orderB )
+          {
+            System.out.println("order B was pressed");
+          }
 
-        else if( e.getSource() == orderC )
-        {
-          System.out.println("order C was pressed");
-        }
+          else if( e.getSource() == orderC )
+          {
+            System.out.println("order C was pressed");
+          }
 
-        else if( e.getSource() == orderD )
-        {
-          System.out.println("order D was pressed");
-        }
+          else if( e.getSource() == orderD )
+          {
+            System.out.println("order D was pressed");
+          }
 
-        else if( e.getSource() == orderE )
-        {
-          System.out.println("order E was pressed");
-        }
+          else if( e.getSource() == orderE )
+          {
+            System.out.println("order E was pressed");
+          }
 
-        else if( e.getSource() == orderF )
-        {
-          System.out.println("order F was pressed");
-        }
+          else if( e.getSource() == orderF )
+          {
+            System.out.println("order F was pressed");
+          }
 
-        else if( e.getSource() == orderG )
-        {
-          System.out.println("order G was pressed");
-        }
+          else if( e.getSource() == orderG )
+          {
+            System.out.println("order G was pressed");
+          }
 
-        // this is for difficulty level
-        if( e.getSource() == orderH )
-        {
-          System.out.println("order H was pressed");
+          // this is for difficulty level
+          if( e.getSource() == orderH )
+          {
+            System.out.println("order H was pressed");
+          }
         }
 
         else if( e.getSource() == easy )

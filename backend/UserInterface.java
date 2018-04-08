@@ -86,7 +86,7 @@ public class UserInterface extends JPanel implements ActionListener
 
     // prompting
     String question = "The math question will appear here...";
-    String workspacePrompt = "This is your workspace, start typing...":
+    String workspacePrompt = "This is your workspace, start typing...";
     String IDPrompt = "Type your ID here...";
 
   private boolean submitPressed = false;
@@ -258,10 +258,6 @@ public class UserInterface extends JPanel implements ActionListener
         finalAnswer = new JTextField(50);
         finalAnswer.setBounds(587,362,96,70);
         this.add(finalAnswer);
-
-	encouragement = new JTextPane();
-	encouragement.setBounds(165,435,370,40);
-	this.add(encouragement);
 
    		/*searchResultsPane = new JTextPane();
         searchResultsPane.setBounds(530,40,235,180);

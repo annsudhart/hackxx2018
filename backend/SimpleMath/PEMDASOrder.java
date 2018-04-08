@@ -8,7 +8,7 @@ public class PEMDASOrder {
   private int difficulty;
   private String buttonChoice;
   private int range;
-  private int amountNumsInEquation;
+  // private int amountNumsInEquation;
   // private MathFlashCard mfc;
 
   public PEMDASOrder(int difficulty, String buttonChoice) {
@@ -32,7 +32,7 @@ public class PEMDASOrder {
         break;
     }
   }
-
+  /*
   public void getAmountNumsInEquation() {
     switch (difficulty) {
       case 1:
@@ -50,15 +50,25 @@ public class PEMDASOrder {
         break;
     }
   }
-  public int[] numberGenerator() {
+*/
+  public int[] numberGenerator(int amountNumsInEquation) {
     int[] equationNums = new int[amountNumsInEquation];
     Random ran = new Random();
+    int base = 0;
+    switch (this.range) {
+      case 10:
+        base = 0;
+      case 100:
+        base = 10;
+      case 1000:
+        base = 100;
+    }
     for (int i = 0; i < numEquationNums; i += 1) {
-      equationNums[i] = ran.nextInt(this.range);
+      equationNums[i] = ran.nextInt(this.range) + base;
     }
     return equationNums;
   }
-
+  /*
   // TODO EDIT
   public String calculateAnswer(int[] equationNums) {
     Random ran = new Random();
@@ -78,24 +88,47 @@ public class PEMDASOrder {
     }
     return answer;
   }
-  public String promptGenerator() {
-    getAmountNumsInEquation(); // Determine number of equation numbers
-    // String[] operatorList = new String[]{" + "," - ", " / ", " * "}; // TODO change order
-    int[] equationNums = numberGenerator(); // Generate all numbers in equation
+  */
+
+
+  public String[] promptGenerator() {
+    String[] answerAndPrompt = new String[2];
+    String[] operatorList = new String[4];
+    int amountNumsInEquation = ran.nextInt(2) + 3;
+    int[] equationNums = numberGenerator(amountNumsInEquation); // Generate all numbers in equation
     int answer = -1;
-    String equationWithAnswer = "";
+    String answer = "";
     // int[] equationNumsWithAnswer = new int[equationNums.length + 1]; // Added 1 space for answer space
     switch (buttonChoice) {
       case "a":
         // (x * y) + z
+        operatorList = {" + "," - ", " / ", " * "};
         System.out.println("PEMDAS Option 'a' chosen.");
-        /* answer = calculateAnswer(equationNums);
-          for (int i = 0; i < equationNums.length - 1; i += 1) {
-            equationWithAnswer += equationNums[i];
-            equationWithAnswer += operatorList[i];
-          }
-          equationWithAnswer += ( " = " + answer );
-        */
+        // answer = calculateAnswer(equationNums);
+        equationWithAnswer = equationNums[0];
+        for (int i = 1; i < equationNums.length - 1; i += 1) {
+          equationWithAnswer += operatorList[i - 1];
+          equationWithAnswer += equationNums[i];
+        }
+
+        switch(equationNums.length) {
+          case 3:
+            answer = equationNums[0] + equationNums[1] - equationNums[2];
+            break;
+          case 4:
+            answer = equationNums[0] + equationNums[1] - equationNums[2]
+                      / equationNums[3];
+            break;
+          case 5:
+            answer = equationNums[0] + equationNums[1] - equationNums[2]
+                      / equationNums[3] * equationNums[4];
+            break;
+          default:
+            break;
+        }
+
+        equationWithAnswer += ( " = " + answer );
+
         break;
       case "b";
         System.out.println("PEMDAS Option 'b' chosen.");
@@ -122,16 +155,8 @@ public class PEMDASOrder {
       default:
         System.out.println("button choice does not exist");
     }
+    answerAndPrompt[0] = answer;
+    answerAndPrompt[1] = equationWithAnswer;
     return problemToSolve;
   }
-
-  public void orderGenerator() {
-
-  }
-
-    public void orderGeneratorV2() {
-
-    }
-
-
 }

@@ -23,15 +23,15 @@ public class MathFlashCard {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
-    if (difficulty == EASY) {
+    if (diff == EASY) {
       arr[0] = ran.nextInt(10);
       arr[1] = ran.nextInt(10);
 
-    } else if (difficulty == MED) {
+    } else if (diff == MED) {
       arr[0] = ran.nextInt(90) + 10;
       arr[1] = ran.nextInt(90) + 10;
 
-    } else if (difficulty == HARD) {
+    } else if (diff == HARD) {
       arr[0] = ran.nextInt(900) + 100;
       arr[1] = ran.nextInt(900) + 100;
     }
@@ -45,7 +45,7 @@ public class MathFlashCard {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
-    if (difficulty == EASY) {
+    if (diff == EASY) {
       while (true) {
         arr[0] = ran.nextInt(10);
         arr[1] = ran.nextInt(10);
@@ -54,11 +54,11 @@ public class MathFlashCard {
         }
       }
 
-    } else if (difficulty == MED) {
+    } else if (diff == MED) {
       arr[0] = ran.nextInt(90) + 10;
       arr[1] = ran.nextInt(90) + 10;
 
-    } else if (difficulty == HARD) {
+    } else if (diff == HARD) {
       arr[0] = ran.nextInt(900) + 100;
       arr[1] = ran.nextInt(900) + 100;
     }
@@ -72,15 +72,15 @@ public class MathFlashCard {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
-    if (difficulty == EASY) {
+    if (diff == EASY) {
       arr[0] = ran.nextInt(10);
       arr[1] = ran.nextInt(10);
 
-    } else if (difficulty == MED) {
+    } else if (diff == MED) {
       arr[0] = ran.nextInt(90) + 10;
       arr[1] = ran.nextInt(90) + 10;
 
-    } else if (difficulty == HARD) {
+    } else if (diff == HARD) {
       arr[0] = ran.nextInt(900) + 100;
       arr[1] = ran.nextInt(900) + 100;
     }
@@ -95,15 +95,15 @@ public class MathFlashCard {
     int[] arr = new int[3]; // create array to be returned
 
     while (true) {
-      if (difficulty == EASY) {
+      if (diff == EASY) {
         arr[0] = ran.nextInt(10);
         arr[1] = ran.nextInt(10);
 
-      } else if (difficulty == MED) {
+      } else if (diff == MED) {
         arr[0] = ran.nextInt(90) + 10;
         arr[1] = ran.nextInt(90) + 10;
 
-      } else if (difficulty == HARD) {
+      } else if (diff == HARD) {
         arr[0] = ran.nextInt(900) + 100;
         arr[1] = ran.nextInt(900) + 100;
       }

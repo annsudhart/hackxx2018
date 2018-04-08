@@ -25,16 +25,16 @@ public class MathFlashCard {
     int[] arr = new int[3]; // create array to be returned
 
     if (diff == EASY) {
-      arr[0] = ran.nextInt(10);
-      arr[1] = ran.nextInt(10);
+      arr[0] = ran.nextInt(11);
+      arr[1] = ran.nextInt(11);
 
     } else if (diff == MED) {
-      arr[0] = ran.nextInt(90) + 10;
-      arr[1] = ran.nextInt(90) + 10;
+      arr[0] = ran.nextInt(90) + 11;
+      arr[1] = ran.nextInt(90) + 11;
 
     } else if (diff == HARD) {
-      arr[0] = ran.nextInt(900) + 100;
-      arr[1] = ran.nextInt(900) + 100;
+      arr[0] = ran.nextInt(900) + 101;
+      arr[1] = ran.nextInt(900) + 101;
     }
 
     arr[2] = arr[0] + arr[1];
@@ -48,20 +48,20 @@ public class MathFlashCard {
 
     if (diff == EASY) {
       while (true) {
-        arr[0] = ran.nextInt(10);
-        arr[1] = ran.nextInt(10);
+        arr[0] = ran.nextInt(11);
+        arr[1] = ran.nextInt(11);
         if (arr[0] >= arr[1]) {
           break;
         }
       }
 
     } else if (diff == MED) {
-      arr[0] = ran.nextInt(90) + 10;
-      arr[1] = ran.nextInt(90) + 10;
+      arr[0] = ran.nextInt(90) + 11;
+      arr[1] = ran.nextInt(90) + 11;
 
     } else if (diff == HARD) {
-      arr[0] = ran.nextInt(900) + 100;
-      arr[1] = ran.nextInt(900) + 100;
+      arr[0] = ran.nextInt(900) + 101;
+      arr[1] = ran.nextInt(900) + 101;
     }
 
     arr[2] = arr[0] - arr[1];
@@ -74,16 +74,16 @@ public class MathFlashCard {
     int[] arr = new int[3]; // create array to be returned
 
     if (diff == EASY) {
-      arr[0] = ran.nextInt(10);
-      arr[1] = ran.nextInt(10);
+      arr[0] = ran.nextInt(11);
+      arr[1] = ran.nextInt(11);
 
     } else if (diff == MED) {
-      arr[0] = ran.nextInt(90) + 10;
-      arr[1] = ran.nextInt(90) + 10;
+      arr[0] = ran.nextInt(90) + 11;
+      arr[1] = ran.nextInt(90) + 11;
 
     } else if (diff == HARD) {
-      arr[0] = ran.nextInt(900) + 100;
-      arr[1] = ran.nextInt(90) + 10;
+      arr[0] = ran.nextInt(900) + 101;
+      arr[1] = ran.nextInt(90) + 11;
     }
 
     arr[2] = arr[0] * arr[1];
@@ -97,16 +97,16 @@ public class MathFlashCard {
 
     while (true) {
       if (diff == EASY) {
-        arr[0] = ran.nextInt(9) + 1;
-        arr[1] = ran.nextInt(9) + 1;
+        arr[0] = ran.nextInt(10) + 1;
+        arr[1] = ran.nextInt(10) + 1;
 
       } else if (diff == MED) {
-        arr[0] = ran.nextInt(90) + 10;
-        arr[1] = ran.nextInt(9) + 1;
+        arr[0] = ran.nextInt(91) + 10;
+        arr[1] = ran.nextInt(10) + 1;
 
       } else if (diff == HARD) {
-        arr[0] = ran.nextInt(900) + 100;
-        arr[1] = ran.nextInt(90) + 10;
+        arr[0] = ran.nextInt(901) + 100;
+        arr[1] = ran.nextInt(91) + 10;
       }
 
       if (arr[0] % arr[1] == 0) {

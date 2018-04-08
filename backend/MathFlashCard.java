@@ -83,7 +83,7 @@ public class MathFlashCard {
 
     } else if (diff == HARD) {
       arr[0] = ran.nextInt(900) + 100;
-      arr[1] = ran.nextInt(900) + 100;
+      arr[1] = ran.nextInt(90) + 10;
     }
 
     arr[2] = arr[0] * arr[1];
@@ -108,7 +108,7 @@ public class MathFlashCard {
         arr[0] = ran.nextInt(900) + 100;
         arr[1] = ran.nextInt(90) + 10;
       }
- 
+
       if (arr[0] % arr[1] == 0) {
         break;
       }

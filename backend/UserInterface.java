@@ -324,7 +324,7 @@ public class UserInterface extends JPanel implements ActionListener
             String prompt = answerAndPrompt[1];
 
             question = "Please find: " + prompt;
-
+            System.out.println(question);
 		}
 
 		else if( e.getSource() == orderB )

@@ -1,6 +1,7 @@
 /*
  * Name: Abirami Sambamoorthy
  * Date: 7 April 2018
+ * for HackXX
  */
 
 import java.util.*;
@@ -12,24 +13,29 @@ public class MathFlashCard {
   private static final int MED = 1;
   private static final int HARD = 2;
 
-  private int range; // set the limit of the randomly generated numbers
+  private int diff;
 
   public MathFlashCard(int difficulty) {
-    if (difficulty == EASY) {
-      range = 10;
-    } else if (difficulty == MED) {
-      range = 100;
-    } else if (difficulty == HARD) {
-      range = 1000;
-    }
+    this.diff = difficulty;
   }
 
   public int[] add() {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
-    arr[0] = ran.nextInt(range);
-    arr[1] = ran.nextInt(range);
+    if (difficulty == EASY) {
+      arr[0] = ran.nextInt(10);
+      arr[1] = ran.nextInt(10);
+
+    } else if (difficulty == MED) {
+      arr[0] = ran.nextInt(90) + 10;
+      arr[1] = ran.nextInt(90) + 10;
+
+    } else if (difficulty == HARD) {
+      arr[0] = ran.nextInt(900) + 100;
+      arr[1] = ran.nextInt(900) + 100;
+    }
+
     arr[2] = arr[0] + arr[1];
 
     return arr;
@@ -39,8 +45,24 @@ public class MathFlashCard {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
-    arr[0] = ran.nextInt(range);
-    arr[1] = ran.nextInt(range);
+    if (difficulty == EASY) {
+      while (true) {
+        arr[0] = ran.nextInt(10);
+        arr[1] = ran.nextInt(10);
+        if (arr[0] >= arr[1]) {
+          break;
+        }
+      }
+
+    } else if (difficulty == MED) {
+      arr[0] = ran.nextInt(90) + 10;
+      arr[1] = ran.nextInt(90) + 10;
+
+    } else if (difficulty == HARD) {
+      arr[0] = ran.nextInt(900) + 100;
+      arr[1] = ran.nextInt(900) + 100;
+    }
+
     arr[2] = arr[0] - arr[1];
 
     return arr;
@@ -50,8 +72,19 @@ public class MathFlashCard {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
-    arr[0] = ran.nextInt(range);
-    arr[1] = ran.nextInt(range);
+    if (difficulty == EASY) {
+      arr[0] = ran.nextInt(10);
+      arr[1] = ran.nextInt(10);
+
+    } else if (difficulty == MED) {
+      arr[0] = ran.nextInt(90) + 10;
+      arr[1] = ran.nextInt(90) + 10;
+
+    } else if (difficulty == HARD) {
+      arr[0] = ran.nextInt(900) + 100;
+      arr[1] = ran.nextInt(900) + 100;
+    }
+
     arr[2] = arr[0] * arr[1];
 
     return arr;
@@ -61,8 +94,24 @@ public class MathFlashCard {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
-    arr[0] = ran.nextInt(range);
-    arr[1] = ran.nextInt(range);
+    while (true) {
+      if (difficulty == EASY) {
+        arr[0] = ran.nextInt(10);
+        arr[1] = ran.nextInt(10);
+
+      } else if (difficulty == MED) {
+        arr[0] = ran.nextInt(90) + 10;
+        arr[1] = ran.nextInt(90) + 10;
+
+      } else if (difficulty == HARD) {
+        arr[0] = ran.nextInt(900) + 100;
+        arr[1] = ran.nextInt(900) + 100;
+      }
+
+      if (arr[0] % arr[1] == 0) {
+        break;
+      }
+    }
     arr[2] = arr[0] / arr[1];
 
     return arr;

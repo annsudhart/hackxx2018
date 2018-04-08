@@ -1,8 +1,20 @@
-* {
+body {
   width: 70%;
+  margin: 60px auto;
 }
 
 h1 {
-  margin: 0 auto;
+  font-size: 3em;
   color: #746773;
+}
+
+h3 {
+  font-size:1em;
+  margin: 0 auto;
+}
+
+#button {
+  position: relative;
+  left: 50%;
+  border-radius: 20%;
 }

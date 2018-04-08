@@ -51,8 +51,18 @@ public class PEMDASOrder {
     for (int i = 0; i < equationNums.length; i += 1) {
       equationNums[i] = ran.nextInt(this.range) + base;
     }
-    System.out.println(equationNums);
+    System.out.println("Generated random numbers");
+    printIntArrayNums(equationNums);
     return equationNums;
+  }
+
+  public void printIntArrayNums(int[] equationNums) {
+    System.out.println();
+    System.out.print("Numbers: " );
+    for(int i = 0; i < equationNums.length; i += 1) {
+      System.out.print( equationNums[i] + " ");
+    }
+    System.out.println();
   }
 
   public String[] promptGenerator() {

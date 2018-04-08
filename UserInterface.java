@@ -1,3 +1,9 @@
+/*
+ * Name: Nicole Trappe
+ * Hackathon, Spring '18
+ * Date: 7 April 2018
+ */
+
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -15,6 +21,17 @@ import java.awt.event.ActionListener;
 
 public class UserInterface extends JPanel implements ActionListener
 {
+    private static int LVL_EASY = 0;
+    private static int LVL_MEDIUM = 1;
+    private static int LVL_HARD = 2;
+    private int current_level = -1;
+    
+    private static int OP_ADD = 0;
+    private static int OP_SUBTRACT = 1;
+    private static int OP_MULTIPLY = 2;
+    private static int OP_DIVIDE = 3;
+    private int current_op = -1;
+
     // math flash cards buttons
 	private JButton add;
 	private JButton subtract;
@@ -45,16 +62,21 @@ public class UserInterface extends JPanel implements ActionListener
     private JTextPane help;
     private JTextPane encouragement;
     
+    
     // background image
     BufferedImage background;
     
+    MathFlashCard flashC;
+    int processedAnswer = -1;
+    int correctAnswer = -1;
+    String question = "";
 
 	
 	public UserInterface()
 	{		
 		try
 		{
-			background = ImageIO.read(new File("media/interfaceArt.png"));
+			background = ImageIO.read(new File("images/InterfaceArt.png"));
 			/* if you guys want to access the image, you need it to be either in a folder
 			 * called images or you need to edit the code above
 			 */
@@ -222,7 +244,7 @@ public class UserInterface extends JPanel implements ActionListener
         this.add(searchResultsPane);*/        
        // allSongsPane.setText( getSongList() );
 
-       
+      
         this.setFocusable(true); 
     }
     
@@ -236,83 +258,226 @@ public class UserInterface extends JPanel implements ActionListener
     {       
         super.paintComponent(g); 
         
-        g.setColor(Color.gray);
-       	g.fillRect(0,0,1000,600); 
-        g.drawImage(background, 0, 0, null);
-        g.setColor(Color.white);   
+        g.setColor( Color.gray );
+       	g.fillRect( 0, 0, 1000, 600 ); 
+        g.drawImage( background, 0, 0, null );
+        g.setColor( Color.black ); 
+        // this is the question prompt
+        g.drawString( question, 350, 60 );  
     }  
     
     public void actionPerformed(ActionEvent e) 
     {
-       
+        //this is for math flash cards
         if( e.getSource() == add )
         {
+        	current_op = OP_ADD;
             System.out.println("add was pressed");
-        }   
+        }  
+         
         else if( e.getSource() == subtract )
         {
-            System.out.println("subtract was pressed");
+        	current_op = OP_SUBTRACT;
+        	System.out.println("subtract was pressed");
 		}
+		
 		 else if( e.getSource() == multiply )
         {
+        	current_op = OP_MULTIPLY;
             System.out.println("multiply was pressed");
 		}
+		
 		 else if( e.getSource() == divide )
         {
+        	current_op = OP_DIVIDE;
             System.out.println("divide was pressed");
 		}
-		 else if( e.getSource() == orderA )
+		
+		// this is for order operations
+		if( e.getSource() == orderA )
         {
             System.out.println("order A was pressed");
 		}	
+		
 		else if( e.getSource() == orderB )
         {
           System.out.println("order B was pressed");
         }
+        
         else if( e.getSource() == orderC )
         {
           System.out.println("order C was pressed");
         }
+        
         else if( e.getSource() == orderD )
         {
           System.out.println("order D was pressed");
         }
+        
         else if( e.getSource() == orderE )
         {
           System.out.println("order E was pressed");
         }
+        
         else if( e.getSource() == orderF )
         {
           System.out.println("order F was pressed");
         }
+        
         else if( e.getSource() == orderG )
         {
           System.out.println("order G was pressed");
         }
-        else if( e.getSource() == orderH )
+        
+        // this is for difficulty level
+        if( e.getSource() == orderH )
         {
           System.out.println("order H was pressed");
         }
+        
         else if( e.getSource() == easy )
         {
-          System.out.println("easy was pressed");
+          current_level = LVL_EASY;
+          if( current_op == OP_ADD ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] addDigits = flashC.add();
+            /* stores the answer of the add function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = addDigits[2];
+            question = "Please find: " + addDigits[0] + " + " + addDigits[1];
+            System.out.println( "Q: " + addDigits[0] + " + " + addDigits[1] );
+          }
+          else if( current_op == OP_SUBTRACT ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] subDigits = flashC.subtract();
+            /* stores the answer of the subtract function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = subDigits[2];
+            question = "Please find: " + subDigits[0] + " - " + subDigits[1];
+            System.out.println( "Q: " + subDigits[0] + " - " + subDigits[1] );
+          }
+          else if( current_op == OP_MULTIPLY ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] multDigits = flashC.multiply();
+            /* stores the answer of the multiply function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = multDigits[2];
+            question = "Please find: " + multDigits[0] + " x " + multDigits[1];
+            System.out.println( "Q: " + multDigits[0] + " x " + multDigits[1] );
+          }
+          else if( current_op == OP_DIVIDE ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] divDigits = flashC.divide();
+            /* stores the answer of the divide function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = divDigits[2];
+            System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
+          }
         }
+        
         else if( e.getSource() == medium )
         {
-          System.out.println("medium was pressed");
-        }
+          current_level = LVL_MEDIUM;
+		  if( current_op == OP_ADD ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] addDigits = flashC.add();
+            /* stores the answer of the add function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = addDigits[2];
+            question = "Please find: " + addDigits[0] + " + " + addDigits[1];
+            System.out.println( "Q: " + addDigits[0] + " + " + addDigits[1] );
+          }
+		  else if( current_op == OP_SUBTRACT ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] subDigits = flashC.subtract();
+            /* stores the answer of the subtract function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = subDigits[2];
+            question = "Please find: " + subDigits[0] + " - " + subDigits[1];
+            System.out.println( "Q: " + subDigits[0] + " - " + subDigits[1] );
+          }
+          else if( current_op == OP_MULTIPLY ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] multDigits = flashC.multiply();
+            /* stores the answer of the multiply function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = multDigits[2];
+            question = "Please find: " + multDigits[0] + " x " + multDigits[1];
+            System.out.println( "Q: " + multDigits[0] + " x " + multDigits[1] );
+          }
+          else if( current_op == OP_DIVIDE ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] divDigits = flashC.divide();
+            /* stores the answer of the divide function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = divDigits[2];
+            question = "Please find: " + divDigits[0] + " / " + divDigits[1];
+            System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
+          }        }
+        
         else if( e.getSource() == hard )
         {
-          System.out.println("hard was pressed");
+          current_level = LVL_MEDIUM;
+		  if( current_op == OP_ADD ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] addDigits = flashC.add();
+            /* stores the answer of the add function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = addDigits[2];
+            question = "Please find: " + addDigits[0] + " + " + addDigits[1];
+            System.out.println( "Q: " + addDigits[0] + " + " + addDigits[1] );
+          }
+          else if( current_op == OP_SUBTRACT ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] subDigits = flashC.subtract();
+            /* stores the answer of the subtract function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = subDigits[2];
+            question = "Please find: " + subDigits[0] + " - " + subDigits[1];
+            System.out.println( "Q: " + subDigits[0] + " - " + subDigits[1] );
+          }
+          else if( current_op == OP_MULTIPLY ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] multDigits = flashC.multiply();
+            /* stores the answer of the multiply function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = multDigits[2];
+            question = "Please find: " + multDigits[0] + " x " + multDigits[1];
+            System.out.println( "Q: " + multDigits[0] + " x " + multDigits[1] );
+          }
+          else if( current_op == OP_DIVIDE ) {
+            flashC = new MathFlashCard( current_level );
+            // takes in the int array of the MathFlashC
+            int[] divDigits = flashC.divide();
+            /* stores the answer of the divide function (we will use this to compare
+            with our submitted answer */
+            correctAnswer = divDigits[2];
+            question = "Please find: " + divDigits[0] + " / " + divDigits[1];
+            System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
+          }
         }
+        
         else if( e.getSource() == submit )
         {
           //user submits a final answer and we must parse it
 		  String answer = finalAnswer.getText();
-		  int finalAnswer = Integer.parseInt( answer );
+		  processedAnswer = Integer.parseInt( answer );
 		  //if final answer is correct, display 
-          System.out.println("submit was pressed, answer: " + answer);
+		  
+          System.out.println("submit was pressed, answer: " + answer + ", correct: " + correctAnswer);
         }
+        
         else if( e.getSource() == pass )
         {
           System.out.println("pass was pressed");

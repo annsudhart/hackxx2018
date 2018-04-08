@@ -440,7 +440,7 @@ public class UserInterface extends JPanel implements ActionListener
 
         else if( e.getSource() == hard )
         {
-          current_level = LVL_MEDIUM;
+          current_level = LVL_HARD;
 		  if( current_op == OP_ADD ) {
             flashC = new MathFlashCard( current_level );
             // takes in the int array of the MathFlashC

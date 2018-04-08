@@ -85,6 +85,7 @@ public class UserInterface extends JPanel implements ActionListener
     int correctAnswer = -1;
     String question = "";
 
+  private boolean submitPressed = false;
 
 	public UserInterface()
 	{
@@ -394,6 +395,7 @@ public class UserInterface extends JPanel implements ActionListener
             /* stores the answer of the divide function (we will use this to compare
             with our submitted answer */
             correctAnswer = divDigits[2];
+            question = "Please find: " + + divDigits[0] + "/" + divDigits[1];
             System.out.println( "Q: " + divDigits[0] + " / " + divDigits[1] );
           }
         }
@@ -489,6 +491,7 @@ public class UserInterface extends JPanel implements ActionListener
 
         else if( e.getSource() == submit )
         {
+          this.submitPressed = true;
           //user submits a final answer and we must parse it
 		  String answer = finalAnswer.getText();
 		  processedAnswer = Integer.parseInt( answer );

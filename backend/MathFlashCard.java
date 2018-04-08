@@ -97,18 +97,18 @@ public class MathFlashCard {
 
     while (true) {
       if (diff == EASY) {
-        arr[0] = ran.nextInt(10);
-        arr[1] = ran.nextInt(10);
+        arr[0] = ran.nextInt(9) + 1;
+        arr[1] = ran.nextInt(9) + 1;
 
       } else if (diff == MED) {
         arr[0] = ran.nextInt(90) + 10;
-        arr[1] = ran.nextInt(10);
+        arr[1] = ran.nextInt(9) + 1;
 
       } else if (diff == HARD) {
         arr[0] = ran.nextInt(900) + 100;
         arr[1] = ran.nextInt(90) + 10;
       }
-
+ 
       if (arr[0] % arr[1] == 0) {
         break;
       }

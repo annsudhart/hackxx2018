@@ -108,7 +108,7 @@ public class MathFlashCard {
         arr[0] = ran.nextInt(900) + 100;
         arr[1] = ran.nextInt(90) + 10;
       }
-
+ 
       if (arr[0] % arr[1] == 0) {
         break;
       }

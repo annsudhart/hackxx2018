@@ -99,9 +99,6 @@ public class UserInterface extends JPanel implements ActionListener
     String IDPrompt = "Type your ID here...";
     Encouragement goodWords = new Encouragement();
 
-    String workspacePrompt = "    This is your workspace, start typing...";
-    String IDPrompt = "  Type your ID here...";
-
   private boolean submitPressed = false;
   private boolean letterOptionPressedLast = false;
   private boolean aOptionPressedLast = false;

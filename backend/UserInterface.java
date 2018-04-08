@@ -54,36 +54,38 @@ public class UserInterface extends JPanel implements ActionListener
     private JButton orderA;
     private JButton orderB;
     private JButton orderC;
-	private JButton orderD;
-	private JButton orderE;
-	private JButton orderF;
-	private JButton orderG;
-	private JButton orderH;
-	// difficulty level
-	private JButton easy;
-	private JButton medium;
-	private JButton hard;
-	// final button options
-	private JButton submit;
-	private JButton pass;
-	// text user panes
-	private JTextField userID;
-	private JTextField workspace;
-	private JTextField finalAnswer;
-	// text
-	private JTextPane questionPrompt;
-        private JTextPane help;
-        private JTextPane encouragement;
-
+    private JButton orderD;
+    private JButton orderE;
+    private JButton orderF;
+    private JButton orderG;
+    private JButton orderH;
+    // difficulty level
+    private JButton easy;
+    private JButton medium;
+    private JButton hard;
+    // final button options
+    private JButton submit;
+    private JButton pass;
+    // text user panes
+    private JTextField userID;
+    private JTextField workspace;
+    private JTextField finalAnswer;
+    // text
+    private JTextPane questionPrompt;
+    private JTextPane help;
+    private JTextPane encouragement;
 
     // background image
     BufferedImage background;
     Image bgResized;
 
+    // Math Flash Card object
     MathFlashCard flashC;
     int processedAnswer = -1;
     int correctAnswer = -1;
     String question = "The math question will appear here...";
+    String workspacePrompt = "This is your workspace, start typing...":
+    String IDPrompt = "Type your ID here...";
 
   private boolean submitPressed = false;
 

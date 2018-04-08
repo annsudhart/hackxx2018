@@ -343,7 +343,8 @@ public class UserInterface extends JPanel implements ActionListener
             if (letterOptionPressedLast) {
               pOrder = new PEMDASOrder(this.current_level, "a");
               String[] answerAndPrompt = pOrder.promptGenerator();
-              String prompt =
+              String answer = answerAndPrompt[0];
+              String prompt = answerAndPrompt[1];
               question = "Please find: " + prompt;
             }
 

@@ -46,6 +46,10 @@ p a {
   text-decoration: underline;
 }
 
+#codelink {
+  text-decoration: none;
+}
+
 .division {
   margin-top: 16px;
   margin-bottom: 16px;

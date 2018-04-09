@@ -82,6 +82,7 @@ public class UserInterface extends JPanel implements ActionListener
 	BufferedImage correct;    //YOU GUYS MIGHT HAVE TO RESIZE
 	BufferedImage incorrect;  //TODO
 	BufferedImage intro;
+  BufferedImage fox;
 	private boolean showCorrect = false;
 	private boolean showIncorrect = false;
 
@@ -153,6 +154,13 @@ public class UserInterface extends JPanel implements ActionListener
 			System.exit(-1);
 		}
 
+    try {
+      fox = ImageIO.read(new File("media/fox.png"));
+    }
+    catch (IOException e) {
+      System.out.println("Could not find fox image");
+      System.exit(-1);
+    }
 
 		this.setLayout(null);
 
@@ -346,7 +354,7 @@ public class UserInterface extends JPanel implements ActionListener
 		g.setColor( Color.gray );
 		g.fillRect( 0, 0, 583, 350 );
 		g.drawImage( bgResized, 0, 0, null );
-
+    g.drawImage( fox, 7, 300, null);
 		// correct/incorrect images (initially invisible)
 		if( showCorrect ) {
 			g.drawImage( correct, 585, 270, null );

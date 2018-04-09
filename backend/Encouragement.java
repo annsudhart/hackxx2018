@@ -29,29 +29,10 @@ public class Encouragement {
 		"African American woman to get a Ph. D. in Mathematics, she brought " +
 		"mathematics education to children in Washington D.C.\'s public schools.";
 	private String[] encouragement={HYPATIA, MARYAM, AGNESI, LOVELACE, LOFTON};
+	int index;
 
-	// Mathematician images
-	private final BufferedImage AL = ImageIO.read(new File("media/adalo.png"));
-	private final BufferedImage EL = ImageIO.read(new File("media/euplo.png"));
-	private final BufferedImage HYP = ImageIO.read(new File("media/hypatia.png"));
-	private final BufferedImage MA = ImageIO.read(new File("media/mariagn.png"));
-	private final BufferedImage MM = ImageIO.read(new File("media/maryamir.png"));
-	private BufferedImage[] encoimg = {HYP, MM, MA, AL, EL};
-
-	private int index;
 
 	public Encouragement() {}
-
-	/**
-	 * Returns an image of a mathematician corresponding to the biography
-	 * generated
-	 *
-	 * @return an image of the mathematician needed
-	 */
-
-	public BufferedImage generateImage() {
-		return encoimg[index];
-	}
 
 	/**
 	 * Generates a random String for encouragement via a biography of
@@ -60,13 +41,12 @@ public class Encouragement {
 	 * @return the string of the mathematician's biography
 	 */
 	public String generateRandomEncouragement() {
+		int oldIndex = index;
 		Random r = new Random();
 		index = r.nextInt(5);
-		System.out.println(oldIndex + " " + index);
 		while (index == oldIndex) {
 			index = r.nextInt(5);
 		}
-		int oldIndex = index;
 		return encouragement[index];
 	}
 

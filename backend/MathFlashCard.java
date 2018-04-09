@@ -1,11 +1,22 @@
 package backend;
 /*
- * Name: Abirami Sambamoorthy
+ * Name: Abirami Sambamoorthy, Andrea Sudharta, 
+ *       Nicole Trappe, Cora Yichen Xing
  * Date: 7 April 2018
  * for HackXX
  */
 
 import java.util.*;
+
+/**
+ * This class generates the math questions (and their
+ * answers) to be displayed in the program, taking into
+ * account difficulty levels and type of math to generate.
+ *
+ * @author Abirami Sambamoorthy, Andrea Sudharta, 
+ *         Nicole Trappe, Cora Yichen Xing
+ *
+ */
 
 public class MathFlashCard {
 
@@ -24,6 +35,9 @@ public class MathFlashCard {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
 
+    /* generate two numbers to be added/subtracted/etc
+     * based on difficulty */
+
     if (diff == EASY) {
       arr[0] = ran.nextInt(11);
       arr[1] = ran.nextInt(11);
@@ -41,6 +55,14 @@ public class MathFlashCard {
 
     return arr;
   }
+
+  /**
+   * Subtract() 
+   * This function generates a subtraction problem.
+   *
+   * @return an int array containing the two numbers to
+   *         subtract and its solution
+   */
 
   public int[] subtract() {
     Random ran = new Random(); // create new Random
@@ -69,6 +91,14 @@ public class MathFlashCard {
     return arr;
   }
 
+  /**
+   * Multiply() 
+   * This function generates a multiplication problem.
+   *
+   * @return an int array containing the two numbers to
+   *         multiply and its solution
+   */
+
   public int[] multiply() {
     Random ran = new Random(); // create new Random
     int[] arr = new int[3]; // create array to be returned
@@ -90,6 +120,14 @@ public class MathFlashCard {
 
     return arr;
   }
+
+  /**
+   * Divide() 
+   * This function generates a multiplication problem.
+   *
+   * @return an int array containing the two numbers to
+   *         multiply and its solution
+   */
 
   public int[] divide() {
     Random ran = new Random(); // create new Random

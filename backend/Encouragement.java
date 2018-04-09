@@ -1,7 +1,9 @@
 package backend;
 import java.util.Random;
+import java.awt.*; // Image and BufferedImage
+
 public class Encouragement {
-	
+
 	private final String HYPATIA = "Hypatia c.370 - 415.  She worked " +
 	"to teach and preserve Greek mathematics in her time. She was also " +
 	"known for her strength in philosophy and reasoning.";
@@ -19,30 +21,34 @@ public class Encouragement {
 	"mathematics education to children in Washington D.C.\'s public schools.";
 	private String[] encouragement={HYPATIA, MARYAM, AGNESI, LOVELACE, LOFTON};
 
-	public Encouragement() {
+	private final BufferedImage AL = ImageIO.read(new File("media/adalo.png"));
+	private final BufferedImage EL = ImageIO.read(new File("media/euplo.png"));
+	private final BufferedImage HYP = ImageIO.read(new File("media/hypatia.png"));
+	private final BufferedImage MA = ImageIO.read(new File("media/mariagn.png"));
+	private final BufferedImage MM = ImageIO.read(new File("media/maryamir.png"));
+	private BufferedImage[] encoimg = {HYP, MM, MA, AL, EL};
 
-	}
+  private int index;
 
-	// generate a specific String for encouragement
-	// pick a string from 0 to 4 inclusive
-	public String generateEncouragement(int x) {
-		if (x > 0 || x < 5) {
-			System.err.println("encouragement out of bounds");
-			return "You got this!";
-		} else {
-			return encouragement[x];
-		}
+	public Encouragement() {}
+
+	public BufferedImage generateImage() {
+    return encoimg[index];
 	}
 
 	// generate a random String for encouragement
 	public String generateRandomEncouragement() {
 		Random r = new Random();
+<<<<<<< HEAD
+		index = r.nextInt(5);
+=======
 		int index = r.nextInt(5);
 		System.out.println(oldIndex + " " + index);
 		while (index == oldIndex) {
 			index = r.nextInt(5);
 		}
 		int oldIndex = index;
+>>>>>>> 0df1eb60cec15913cfb13be3cf72b2e293efc632
 		return encouragement[index];
 	}
 

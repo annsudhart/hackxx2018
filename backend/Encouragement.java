@@ -39,7 +39,16 @@ public class Encouragement {
 	// generate a random String for encouragement
 	public String generateRandomEncouragement() {
 		Random r = new Random();
+<<<<<<< HEAD
 		index = r.nextInt(5);
+=======
+		int index = r.nextInt(5);
+		System.out.println(oldIndex + " " + index);
+		while (index == oldIndex) {
+			index = r.nextInt(5);
+		}
+		int oldIndex = index;
+>>>>>>> 0df1eb60cec15913cfb13be3cf72b2e293efc632
 		return encouragement[index];
 	}
 

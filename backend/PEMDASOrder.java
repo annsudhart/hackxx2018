@@ -57,7 +57,7 @@ public class PEMDASOrder {
     }
     for (int i = 0; i < equationNums.length; i += 1) {
       equationNums[i] = ran.nextInt(this.range) + base;
-      System.out.println("base: " + base);
+      // System.out.println("base: " + base);
     }
     System.out.println("Generated random numbers");
     printIntArrayNums(equationNums);
@@ -89,11 +89,6 @@ public class PEMDASOrder {
         // (x * y) + z
         System.out.println("PEMDAS Option 'a' chosen.");
         // answer = calculateAnswer(equationNums);
-        equationStr += equationNums[0];
-        for (int i = 1; i < equationNums.length; i += 1) {
-          equationStr += operatorList[i - 1];
-          equationStr += equationNums[i];
-        }
 
         switch(equationNums.length) {
           case 3:
@@ -116,16 +111,16 @@ public class PEMDASOrder {
           default:
             break;
         }
-        // equationWithEqualSign += ( " = " );
-        break;
-      case "b":
-        System.out.println("PEMDAS Option 'b' chosen.");
-        operatorList = new String[]{" / ", " - ", " + ", " * "};
         equationStr += equationNums[0];
         for (int i = 1; i < equationNums.length; i += 1) {
           equationStr += operatorList[i - 1];
           equationStr += equationNums[i];
         }
+        // equationWithEqualSign += ( " = " );
+        break;
+      case "b":
+        System.out.println("PEMDAS Option 'b' chosen.");
+        operatorList = new String[]{" / ", " - ", " + ", " * "};
 
         switch(equationNums.length) {
           case 3:
@@ -151,18 +146,17 @@ public class PEMDASOrder {
           default:
             break;
         }
-
+        equationStr += equationNums[0];
+        for (int i = 1; i < equationNums.length; i += 1) {
+          equationStr += operatorList[i - 1];
+          equationStr += equationNums[i];
+        }
         break;
 
       case "c":
         System.out.println("PEMDAS Option 'c' chosen.");
 
         operatorList = new String[]{" - ", " * ", " + ", " / "};
-        equationStr += equationNums[0];
-        for (int i = 1; i < equationNums.length; i += 1) {
-          equationStr += operatorList[i - 1];
-          equationStr += equationNums[i];
-        }
 
         switch(equationNums.length) {
           case 3:
@@ -182,7 +176,11 @@ public class PEMDASOrder {
           default:
             break;
         }
-
+        equationStr += equationNums[0];
+        for (int i = 1; i < equationNums.length; i += 1) {
+          equationStr += operatorList[i - 1];
+          equationStr += equationNums[i];
+        }
         break;
 
       case "d":
@@ -209,7 +207,9 @@ public class PEMDASOrder {
         System.out.println("button choice does not exist");
     }
     answerAndPrompt[0] = answer;
+    System.out.println("answer: " + answer);
     answerAndPrompt[1] = equationStr;
+    System.out.println("equationStr: " + equationStr);
     return answerAndPrompt;
   }
 }

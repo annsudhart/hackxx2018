@@ -1,6 +1,17 @@
 package backend;
 import java.util.Random;
 
+/**
+ * PEMDASOrder
+ * Helps handle order of operations questions
+ * 
+ * (PEMDAS stands for Parentheses, Exponents, Multiplication/
+ * Division, Addition/Subtraction)
+ *
+ * @author Abirami Sambamoorthy, Andrea Sudharta, Nicole Trappe, Cora Yichen Xing
+ *
+ */
+
 public class PEMDASOrder {
 
   private final static int EASY = 0;
@@ -10,15 +21,22 @@ public class PEMDASOrder {
   private int difficulty;
   private String buttonChoice;
   private int range;
-  // private int amountNumsInEquation;
-  // private MathFlashCard mfc;
+
+  /** 
+   * The constructor takes in the difficulty and the type of
+   * PEMDAS problem to practice
+   *
+   * @param difficulty   - the difficulty of the problem to generate.
+   * @param buttonChoice - the type of pemdas problem to solve
+   *
+   */
 
   public PEMDASOrder(int difficulty, String buttonChoice) {
     this.difficulty = difficulty;
     this.buttonChoice = buttonChoice; // button pressed from options
     this.getRange();
-    // this.mfc = new MathFlashCard(difficulty);
   }
+
 
   public void getRange() {
     System.out.println(this.difficulty);
@@ -57,7 +75,6 @@ public class PEMDASOrder {
     }
     for (int i = 0; i < equationNums.length; i += 1) {
       equationNums[i] = ran.nextInt(this.range) + base;
-      // System.out.println("base: " + base);
     }
     System.out.println("Generated random numbers");
     printIntArrayNums(equationNums);
@@ -83,12 +100,9 @@ public class PEMDASOrder {
     int[] equationNums = numberGenerator(amountNumsInEquation);
     String equationStr = "";
     String answer = "";
-    // int[] equationNumsWithAnswer = new int[equationNums.length + 1];
     switch (buttonChoice) {
       case "a":
-        // (x * y) + z
         System.out.println("PEMDAS Option 'a' chosen.");
-        // answer = calculateAnswer(equationNums);
 
         switch(equationNums.length) {
           case 3:
@@ -116,7 +130,6 @@ public class PEMDASOrder {
           equationStr += operatorList[i - 1];
           equationStr += equationNums[i];
         }
-        // equationWithEqualSign += ( " = " );
         break;
       case "b":
         System.out.println("PEMDAS Option 'b' chosen.");

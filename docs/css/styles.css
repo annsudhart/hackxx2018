@@ -38,6 +38,14 @@ h3 {
   font-size: 
 }
 
+#zoom-in {
+  margin-top: 0px;
+}
+
+p a {
+  text-decoration: underline;
+}
+
 .division {
   margin-top: 16px;
   margin-bottom: 16px;

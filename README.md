@@ -1,5 +1,6 @@
 # hackxx2018
-A project for the HackXX 2018
+A project for the HackXX 2018, also found on: https://devpost.com/software/any-a
+This project won the HackXX Grand Prize for creating an math education application to empower girls in elementary school, by allowing them to PEMDAS math concepts and to see female role models in math.
 
 ## Inspiration
 One of our teammates, Nicole, attended an elementary school where girls were notably good at science but often discouraged from pursuing fields in math. Throughout her life and through her story, we believed that intuitively, if women are capable of making progress in science, then women can find a future in math as well, and should not be hindered at an early age.
